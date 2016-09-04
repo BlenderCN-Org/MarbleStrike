@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<effect>
+  <usage>
+    <stream num="0" datatype="POSITION0" shaderinput="POSITION0" format="float3"/>
+    <stream num="0" datatype="TEXCOORD0" shaderinput="TEXCOORD0" format="float2"/>
+  </usage>
+
+  <technique name="post_ssao">
+    <pass name="P0">
+      <depthstencil name="no_ztest_no_zwrite"/>
+      <blend name="noblend"/>
+      <rasterizer name="nocull"/>
+      <sampler name="gDepthTexture" state="default"/>
+      <sampler name="gNormalTexture" state="default"/>
+      <sampler name="gRandomTexture" state="random"/>
+      <vertexshader name="post_ssao" profile="vs_3_0" />
+      <pixelshader name="post_ssao" profile="ps_3_0"/>
+    </pass>
+  </technique>
+</effect>

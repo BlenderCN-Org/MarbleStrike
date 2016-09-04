@@ -1,0 +1,53 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+Texture2D gGBufferTexture;
+SamplerState gGBufferTextureState;
+float4x4 gObjectToCameraMatrix;
+float4 gOffset;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float2 TexCoord : TEXCOORD0;
+    float3 FrustumCorners : TEXCOORD1;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+    
+    float2 texCoord = IN.TexCoord;
+    float3 frustumCorners = IN.FrustumCorners;
+        
+    float4 gBufferData = gGBufferTexture.Sample( gGBufferTextureState, texCoord + gOffset.xy * float2( 0.5, 0.5 ) );
+        
+    float3 linearDepth = float3( gBufferData.w, gBufferData.w, -gBufferData.w );
+	float3 viewPosition = frustumCorners * linearDepth;
+	
+	float3 lightPosition = float3( 0, 10, 0 );
+	float4 viewLightPosition = mul( float4( lightPosition, 1 ), gObjectToCameraMatrix );
+	float3 lightDirection = viewPosition - viewLightPosition.xyz;
+	lightDirection = normalize( lightDirection );
+    
+    float3 normalizedNormal = gBufferData.xyz;       
+	float3 normal = ( normalizedNormal * 2.0 ) - 1.0;
+			
+	float NdotL = max( dot( normal, -lightDirection ), 0.0 );
+    
+    output.Color = float4( NdotL, NdotL, NdotL, 1.0 );   
+        
+    return output;  
+}

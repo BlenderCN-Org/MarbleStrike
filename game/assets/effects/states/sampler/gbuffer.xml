@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<SamplerState>
+  <Name value="gbuffer" />
+  <MinFilter value="Filter_Point" />
+  <MagFilter value="Filter_Point" />
+  <MipFilter value="Filter_None" />
+  <AddressU value="TextureAddressMode_Clamp" />
+  <AddressV value="TextureAddressMode_Clamp" />
+  <AddressW value="TextureAddressMode_Clamp" />
+  <BorderColor r="1" g="1" b="1" a="0" />
+  <MipLODBias value="0" />
+  <MaxAnisotropy value="1" />
+</SamplerState>

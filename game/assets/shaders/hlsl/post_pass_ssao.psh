@@ -1,0 +1,37 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+Texture2D gMainTexture;
+SamplerState gMainTextureState;
+Texture2D gSSAOTexture;
+SamplerState gSSAOTextureState;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float2 TexCoord : TEXCOORD0;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+    
+    float4 finalColor = gMainTexture.Sample( gMainTextureState, IN.TexCoord );   
+	float4 ssaoColor = gSSAOTexture.Sample( gSSAOTextureState, IN.TexCoord );   
+    output.Color.rgb = finalColor.rgb * ssaoColor.r;
+	output.Color.a = 1.0;
+	    
+    return output;  
+}

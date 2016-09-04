@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<effect>
+  <usage>
+    <stream num="0" datatype="POSITION0" shaderinput="POSITION0" format="float3"/>
+    <stream num="0" datatype="NORMAL0" shaderinput="NORMAL0" format="float3"/>
+  </usage>
+
+  <technique name="gbuffer">
+    <pass name="P0">
+      <depthstencil name="zlessequal"/>
+      <blend name="noblend"/>
+      <rasterizer name="nocull"/>
+      <vertexshader name="gbuffer" profile="vs_3_0" />
+      <pixelshader name="gbuffer" profile="ps_3_0"/>
+    </pass>
+  </technique>
+
+  <technique name="normalgbuffer">
+    <pass name="P0">
+      <depthstencil name="zlessequal"/>
+      <blend name="noblend"/>
+      <rasterizer name="backcull"/>
+      <vertexshader name="normalgbuffer" profile="vs_3_0" />
+      <pixelshader name="normalgbuffer" profile="ps_3_0"/>
+    </pass>
+  </technique>
+
+  <technique name="lineardepthgbuffer">
+    <pass name="P0">
+      <depthstencil name="zlessequal"/>
+      <blend name="noblend"/>
+      <rasterizer name="backcull"/>
+      <vertexshader name="lineardepthgbuffer" profile="vs_3_0" />
+      <pixelshader name="lineardepthgbuffer" profile="ps_3_0"/>
+    </pass>
+  </technique>
+  
+</effect>

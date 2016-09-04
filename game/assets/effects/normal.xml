@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<effect>
+  <usage>
+    <stream num="0" datatype="POSITION0" shaderinput="POSITION0" format="float3"/>
+    <stream num="0" datatype="NORMAL0" shaderinput="NORMAL0" format="float3"/>
+    <stream num="0" datatype="TEXCOORD0" shaderinput="TEXCOORD0" format="float2"/>
+    <stream num="0" datatype="TANGENT0" shaderinput="TANGENT0" format="float3"/>
+  </usage>
+
+  <technique name="normal">
+    <pass name="P0">
+      <depthstencil name="zlessequal"/>
+      <blend name="noblend"/>
+      <rasterizer name="nocull"/>
+      <sampler name="gTexture" state="default"/>
+      <sampler name="gTextureNormalMap" state="default"/>
+      <sampler name="gShadowDepthTexture" state="default"/>
+      <vertexshader name="normalmap" profile="vs_3_0" />
+      <pixelshader name="normalmap" profile="ps_3_0"/>
+    </pass>
+  </technique>
+</effect>

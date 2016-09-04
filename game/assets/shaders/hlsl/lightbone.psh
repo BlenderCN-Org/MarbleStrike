@@ -1,0 +1,85 @@
+//--------------------------------------------------------------------------------------
+// Global variables
+//--------------------------------------------------------------------------------------
+float4 gDiffuseColor;
+Texture2D gTexture;
+SamplerState gTextureState;
+float4 gEnableTexture;
+Texture2D gShadowDepthTexture;
+SamplerState gShadowDepthTextureState;
+float4 gEnableShadow;
+
+//--------------------------------------------------------------------------------------
+// Light
+//--------------------------------------------------------------------------------------
+float4 gLightDiffuseColor;
+
+//--------------------------------------------------------------------------------------
+// Output structure
+//--------------------------------------------------------------------------------------
+struct PS_INPUT
+{
+    float4 Position : SV_POSITION;
+    float3 Normal : TEXCOORD0;
+	float3 LightDirectionNormalized : TEXCOORD1;
+	float2 TexCoord : TEXCOORD2;
+	float2 Depth : TEXCOORD3;
+	float4 ShadowTexCoord : TEXCOORD4;
+};
+
+struct PS_OUTPUT
+{
+    float4 RGBColor : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// Pixel shader
+//--------------------------------------------------------------------------------------
+PS_OUTPUT PSMain( PS_INPUT In )
+{ 
+    PS_OUTPUT output;
+    
+    float3 n = normalize( In.Normal );
+		
+	float NdotL = max( dot( n, normalize( In.LightDirectionNormalized.xyz ) ), 0.0 );
+	float4 lightColor = gLightDiffuseColor * saturate( NdotL );	
+	
+	float2 shadowTexCoord = In.ShadowTexCoord.xy / In.ShadowTexCoord.w;
+    shadowTexCoord.y = 1.0f - shadowTexCoord.y;    
+	float4 shadowDepth = float4( 0, 0, 0, 0 );
+	
+	if ( gEnableShadow.x )
+	{
+		shadowDepth = gShadowDepthTexture.Sample( gShadowDepthTextureState, shadowTexCoord );	
+	}
+	
+	float finalDepth = In.Depth.x / In.Depth.y;
+	float shadowValue = 1.0f;
+	
+	if ( shadowDepth.x > finalDepth - 0.005 )		
+	{	
+		shadowValue = 1.0f;		
+	}
+	else
+	{
+		shadowValue = 0.5f;
+	}	
+    
+    output.RGBColor = lightColor;
+    
+    if ( gEnableTexture.x )
+    {
+		output.RGBColor *= gTexture.Sample( gTextureState, In.TexCoord );	
+    }
+    else
+    {
+		output.RGBColor *= gDiffuseColor;
+    }
+        
+    if ( gEnableShadow.x )
+	{
+		output.RGBColor.xyz *= shadowValue;
+	}    
+
+	return output;
+}

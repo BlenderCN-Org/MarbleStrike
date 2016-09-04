@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<effect>
+  <usage>
+    <stream num="0" datatype="POSITION0" shaderinput="POSITION0" format="float3"/>
+    <stream num="0" datatype="TEXCOORD0" shaderinput="TEXCOORD0" format="float2"/>
+  </usage>
+
+  <technique name="bowler_opaque">
+    <pass name="P0">
+      <depthstencil name="zlessequal"/>
+      <blend name="noblend"/>
+      <rasterizer name="backcull"/>
+      <sampler name="gColorTexture" state="linear"/>
+      <vertexshader name="bowler_alpha" profile="vs_3_0" />
+      <pixelshader name="bowler_alpha" profile="ps_3_0"/>
+    </pass>
+  </technique>
+
+  <technique name="bowler_alpha">
+    <pass name="P0">
+      <depthstencil name="no_zwrite"/>
+      <blend name="alphablend"/>
+      <rasterizer name="backcull"/>
+      <sampler name="gColorTexture" state="linear"/>
+      <vertexshader name="bowler_alpha" profile="vs_3_0" />
+      <pixelshader name="bowler_alpha" profile="ps_3_0"/>
+    </pass>
+  </technique>
+  
+</effect>

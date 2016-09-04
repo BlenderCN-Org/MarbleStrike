@@ -1,0 +1,133 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+float4 gKernel[16];
+float4x4 gProjectionMatrix;
+float4x4 gInverseProjectionMatrix;
+
+Texture2D gDepthTexture;
+SamplerState gDepthTextureState;
+Texture2D gNormalTexture;
+SamplerState gNormalTextureState;
+Texture2D gRandomTexture;
+SamplerState gRandomTextureState;
+
+static const float2 NOISE_SCALE = float2( 1024 / 4, 768 / 4 );
+static const float SAMPLE_KERNEL_SIZE = 16;
+static const float RADIUS = 0.8f;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PS_INPUT
+{
+    float4 Position : SV_POSITION;
+    float2 TexCoord : TEXCOORD0;
+};
+
+struct PS_OUTPUT
+{
+    float4 RGBColor : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+PS_OUTPUT PSMain( PS_INPUT IN )
+{ 
+    PS_OUTPUT output;
+
+	float3 normal = gNormalTexture.Sample( gNormalTextureState, IN.TexCoord ).xyz * 2.0 - 1.0;
+	normal = normalize( normal );
+
+	float x = IN.TexCoord.x * 2.0 - 1.0;
+	float y = ( 1.0 - IN.TexCoord.y ) * 2.0 - 1.0;
+	float z = gDepthTexture.Sample( gDepthTextureState, IN.TexCoord ).r;
+	
+	float4 projPos = float4( x, y, z, 1.0 );
+	float4 viewPos = mul( projPos, gInverseProjectionMatrix );	
+	float3 origin = viewPos.xyz / viewPos.w;	
+
+	float3 rvec = gRandomTexture.Sample( gRandomTextureState, IN.TexCoord * NOISE_SCALE ).xyz * 2.0 - 1.0;
+	float3 tangent = normalize( rvec - normal * dot( rvec, normal ) );
+	float3 bitangent = cross( normal, tangent );
+	float3x3 tbn = float3x3( tangent, bitangent, normal );
+	
+	float occlusion = 0.0;
+	for ( int i = 0; i < SAMPLE_KERNEL_SIZE; ++i ) 
+	{		
+		float3 samplePoint = mul( gKernel[i].xyz, tbn );
+		samplePoint = samplePoint * RADIUS + origin;
+		
+		float4 offset = float4( samplePoint, 1.0 );
+		offset = mul( offset, gProjectionMatrix );
+		offset.xyz /= offset.w;
+		offset.xy = offset.xy * 0.5 + 0.5;
+		offset.y = 1.0 - offset.y;
+	
+		float sampleDepth = gDepthTexture.Sample( gDepthTextureState, offset.xy ).r;		
+		float rangeCheck = abs( z - sampleDepth ) < RADIUS ? 1.0 : 0.0;
+		occlusion += ( (sampleDepth ) < offset.z ? 1.0 : 0.0 ) * rangeCheck;
+	}  
+
+	occlusion = 1.0 - ( occlusion / SAMPLE_KERNEL_SIZE );
+
+	float4 finalColor = float4( occlusion, occlusion, occlusion, 1 );
+    output.RGBColor = finalColor;
+    return output;  	
+
+	/*
+	const int numSamples = 16;
+	float offsetScale = 0.01;
+	const float offsetScaleStep = 1 + 2.4/numSamples;
+
+	float2 rotationTC = IN.TexCoord * float2( 1024, 768 ) / 4;
+	float3 vRotation = 2 * gRandomTexture.Sample( gRandomTextureState, rotationTC ).rgb - 1;
+
+	float3x3 rotMat;
+	float h = 1 / ( 1 + vRotation.z );
+	rotMat._m00 =  h * vRotation.y * vRotation.y + vRotation.z;
+	rotMat._m01 = -h * vRotation.y * vRotation.x;
+	rotMat._m02 = -vRotation.x;
+	rotMat._m10 = -h * vRotation.y * vRotation.x;
+	rotMat._m11 = h * vRotation.x * vRotation.x + vRotation.z;
+	rotMat._m12 = -vRotation.y;
+	rotMat._m20 = vRotation.x;
+	rotMat._m21 = vRotation.y;
+	rotMat._m22 = vRotation.z;
+	
+	float farPlane = 1100.0;
+	float depthPos = gDepthTexture.Sample( gDepthTextureState, IN.TexCoord ).x * farPlane;
+
+	float ambient = 0;
+	for ( int i = 0; i < (numSamples/8); ++i )
+	
+		for ( int x = -1; x <= 1; x+=2 )
+		
+			for ( int y = -1; y <= 1; y+=2 )
+			
+				for ( int z = -1; z <= 1; z+=2 )
+				{
+					float3 offset = normalize( float3( x, y, z ) ) * ( offsetScale *= offsetScaleStep );
+					//float3 vRotatedOffset = reflect( offset, vRotation);
+					float3 vRotatedOffset = mul( offset, rotMat );
+
+					float3 samplePos = float3( IN.TexCoord.xy, depthPos );
+					samplePos += float3( vRotatedOffset.xy, vRotatedOffset.z * depthPos * 2 );
+					float sampleDepth = gDepthTexture.Sample( gDepthTextureState, samplePos.xy ).x * farPlane;
+
+					float fRangeIsInvalid = saturate( ( ( depthPos - sampleDepth ) / sampleDepth ) );
+					ambient += lerp( sampleDepth > samplePos.z, 0.5, fRangeIsInvalid );
+				}
+			
+		
+	
+	ambient /= numSamples;
+	
+	float4 finalColor = float4( ambient, ambient, ambient, 1 );
+    output.RGBColor = finalColor;   
+    
+    return output;  	
+	*/
+}

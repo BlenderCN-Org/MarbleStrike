@@ -1,0 +1,36 @@
+#ifndef PATH_UTILITIES_HPP
+#define PATH_UTILITIES_HPP
+
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#include "common/engine/system/fixedstring.hpp"
+
+//////////////////////////////////////////////////////
+// CONSTANTS
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// STRUCTURE
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// CLASSES
+//////////////////////////////////////////////////////
+
+namespace System
+{
+	namespace Path
+	{
+		System::FixedString<256> SystemSlash( const char* path );
+		void GetFilename( const char* path, char* output, int size );
+		void GetFilenameNoExt( const char* path, char* output, int size );
+		void GetExt( const char* path, char* output, int size );
+		void GetFilePath( const char* path, char* output, int size );
+		void MakeAbsolutePath( const char* input, char* output, int size );
+        void MakeDirectory( const char* input );
+	}
+}
+
+#endif 

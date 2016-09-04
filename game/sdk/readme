@@ -1,0 +1,14 @@
+SDK libraries used for development
+
+- Box2D_v2.1.2
+- bullet-2.81-rev2613
+- FreeImage 3.9.3
+- glew 1.5.8
+- jsoncpp-src-0.6.0-rc2
+- libogg-1.3.0
+- libvorbis-1.3.3
+- lua-5.1.4
+- openal-1.1
+- opengles1.1
+- opengles2
+- tinyxml2 1.0.9

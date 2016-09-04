@@ -1,0 +1,38 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+float4 gFarPlane;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+	float4 Position : SV_POSITION;
+    float3 Normal : TEXCOORD0;
+    float4 HPosition : TEXCOORD1;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+    
+    float3 normal = IN.Normal;
+    float4 hPosition = IN.HPosition;
+    
+    float3 normalizedNormal = ( normal + 1.0 ) * 0.5;
+    float depth = hPosition.z / hPosition.w;    
+    
+    output.Color = float4( normalizedNormal, depth );
+        
+    return output;  
+}

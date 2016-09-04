@@ -1,0 +1,41 @@
+//--------------------------------------------------------------------------------------
+// Global variables
+//--------------------------------------------------------------------------------------
+uniform float4 gDiffuseColor;
+
+Texture2D gColorTexture;
+SamplerState gColorTextureState;
+
+//--------------------------------------------------------------------------------------
+// Output structure
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float2 TexCoord : TEXCOORD1;
+	float FogFactor : TEXCOORD2;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// Pixel shader
+//--------------------------------------------------------------------------------------
+
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+     
+	float4 texColor = gColorTexture.Sample( gColorTextureState, IN.TexCoord );
+	float4 finalColor = texColor * gDiffuseColor;
+
+	float4 fogColor = float4(0.11,0.576,0.827,1);
+	finalColor = IN.FogFactor * finalColor + ( 1.0 - IN.FogFactor) * fogColor;
+	
+	output.Color = finalColor;	 
+    
+    return output;  
+}

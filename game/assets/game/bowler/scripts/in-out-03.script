@@ -1,0 +1,5 @@
+delay 2
+disappear
+delay 3
+appear
+delay 1

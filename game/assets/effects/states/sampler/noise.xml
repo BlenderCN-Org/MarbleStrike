@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<SamplerState>
+  <Name value="noise" />
+  <MinFilter value="Filter_Point" />
+  <MagFilter value="Filter_Point" />
+  <MipFilter value="Filter_None" />
+  <AddressU value="TextureAddressMode_Wrap" />
+  <AddressV value="TextureAddressMode_Wrap" />
+  <AddressW value="TextureAddressMode_Wrap" />
+  <BorderColor r="0" g="0" b="0" a="0" />
+  <MipLODBias value="0" />
+  <MaxAnisotropy value="1" />
+</SamplerState>

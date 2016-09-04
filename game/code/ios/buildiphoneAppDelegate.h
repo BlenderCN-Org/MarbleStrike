@@ -1,0 +1,29 @@
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#import <UIKit/UIKit.h>
+
+//////////////////////////////////////////////////////
+// FORWARD DECLARATION
+//////////////////////////////////////////////////////
+
+@class GraphicsViewController;
+@class OpenFeintGameDelegate;
+
+//////////////////////////////////////////////////////
+// CLASS
+//////////////////////////////////////////////////////
+
+@interface buildiphoneAppDelegate : NSObject <UIApplicationDelegate> 
+{
+    UIWindow* mWindow;
+    GraphicsViewController* mViewController;
+	OpenFeintGameDelegate* mOpenFeintGameDelegate;
+}
+
+@property (nonatomic, retain) IBOutlet UIWindow *mWindow;
+@property (nonatomic, retain) IBOutlet GraphicsViewController* mViewController;
+
+@end
+

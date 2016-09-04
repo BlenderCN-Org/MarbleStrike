@@ -1,0 +1,85 @@
+<ScreenProperties width="960" height="640" r="0" g="0" b="0"/>
+
+<GuiStatic id="1">
+    <Name value="Background"/>
+    <CurrentData>
+        <Size width="960" height="640"/>
+        <Position x="0" y="0"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="0.7" r="0" g="0" b="0" a="255"/>
+    <UV x="0" y="341" width="99" height="640"/>
+    <Texture name="game\bowler\gui\textures\start_layout_960x640"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="4">
+    <Name value="CloudBig"/>
+    <CurrentData>
+        <Size width="578" height="381"/>
+        <Position x="170" y="-189"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="444" y="389" width="578" height="381"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1_960x640"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="5">
+    <Name value="CloudMedium"/>
+    <CurrentData>
+        <Size width="352" height="237"/>
+        <Position x="27" y="320"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="664" y="779" width="352" height="237"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1_960x640"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="6">
+    <Name value="CloudSmall"/>
+    <CurrentData>
+        <Size width="194" height="131"/>
+        <Position x="731" y="487"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="435" y="864" width="194" height="131"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1_960x640"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiSprite id="2">
+    <Name value="LoadingIcon"/>
+    <CurrentData>
+        <Size width="180" height="180"/>
+        <Position x="633" y="214"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <TextureFile value="game\bowler\gui\textures\loading_animated_960x640"/>
+    <fps value="10"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiSprite>
+
+<GuiStatic id="3">
+    <Name value="Loading"/>
+    <CurrentData>
+        <Size width="459" height="142"/>
+        <Position x="139" y="229"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="21" y="857" width="459" height="142"/>
+    <Texture name="game\bowler\gui\textures\options_layout_2_960x640"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<?xml version="1.0" encoding="UTF-8"?>

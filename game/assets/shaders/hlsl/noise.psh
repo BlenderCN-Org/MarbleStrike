@@ -1,0 +1,116 @@
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PS_INPUT
+{
+    float4 Position : SV_POSITION;
+	float3 WorldPosition : TEXCOORD2;
+};
+
+struct PS_OUTPUT
+{
+    float4 RGBColor : SV_TARGET;    
+};
+
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+#define gPermutationTexture gTexture0
+#define gGradientTexture gTexture1
+
+Texture2D gPermutationTexture;
+SamplerState gPermutationTextureState;
+Texture2D gGradientTexture;
+SamplerState gGradientTextureState;
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+float3 fade( float3 t )
+{
+	return t * t * t * ( t * ( t * 6.0 - 15.0 ) + 10.0 );
+}
+
+float perm( float i )
+{
+	float2 texCoord = float2( i / 256.0, 0 );
+	float3 data = gPermutationTexture.Sample( gPermutationTextureState, texCoord ).xyz;	
+	float p = data.x * 256.0f;
+	return p;
+}
+
+float grad( float x, float3 p )
+{
+	float modx = fmod( float( x ), 16.0 );
+	float2 texCoord = float2( modx / 16.0, 0 );
+	float3 gradientValue = gGradientTexture.Sample( gGradientTextureState, texCoord ).xyz;	
+	gradientValue = gradientValue * 2.0 - 1.0;
+
+	return dot( gradientValue, p );		
+}
+
+float Noise3D( float3 position )
+{
+	// FIND UNIT CUBE THAT CONTAINS POINT
+	
+	float3 P = fmod( floor( position ), 256.0 );
+	float X = P.x;	
+	float Y = P.y;	
+	float Z = P.z;	
+	
+	// FIND RELATIVE X,Y,Z OF POINT IN CUBE.
+	position -= floor( position ); 
+	
+	// COMPUTE FADE CURVES FOR EACH OF X,Y,Z.
+	float3 f = fade( position );
+	
+    // HASH COORDINATES OF THE 8 CUBE CORNERS
+  	float A = perm( X ) + Y;  	
+  	float AA = perm( A ) + Z;
+	float AB = perm( A + 1 ) + Z;
+  	float B =  perm( X + 1 ) + Y;
+  	float BA = perm( B ) + Z;
+  	float BB = perm( B + 1 ) + Z;
+  	  	
+	// AND ADD BLENDED RESULTS FROM 8 CORNERS OF CUBE
+   	float grad1 = grad( perm( AA ), position );
+  	float grad2 = grad( perm( AB ), position + float3( 0, -1, 0 ) );
+  	float grad3 = grad( perm( AA + 1 ), position + float3( 0, 0, -1 ) );
+  	float grad4 = grad( perm( AB + 1 ), position + float3( 0, -1, -1 ) );  	
+  	float grad5 = grad( perm( BA ), position + float3( -1, 0, 0 ) );
+  	float grad6 = grad( perm( BB ), position + float3( -1, -1, 0 ) );
+  	float grad7 = grad( perm( BA + 1 ), position + float3( -1, 0, -1 ) );
+  	float grad8 = grad( perm( BB + 1 ), position + float3( -1, -1, -1 ) );
+  	
+  	float lerp1 = lerp( grad1, grad5, f.x );
+  	float lerp2 = lerp( grad2, grad6, f.x );
+  	float lerp3 = lerp( grad3, grad7, f.x );
+  	float lerp4 = lerp( grad4, grad8, f.x );
+  	float lerp5 = lerp( lerp1, lerp2, f.y );
+  	float lerp6 = lerp( lerp3, lerp4, f.y );
+  	float lerp7 = lerp( lerp5, lerp6, f.z );
+  	
+  	return lerp7;
+}
+
+PS_OUTPUT PSMain( PS_INPUT IN )
+{ 
+    PS_OUTPUT output;
+    	
+	float noiseValue = 0;
+	
+	noiseValue += Noise3D( IN.WorldPosition * 5.0 );
+	for ( float i = 1.0; i < 8.0; ++i )
+	{
+		noiseValue += Noise3D( IN.WorldPosition * 5.0 * 2.0 * i ) * 1.0 / ( 2.0 * i );
+	}
+	
+	noiseValue = noiseValue * 0.5 + 0.5;
+		
+	float4 finalColor = float4( noiseValue, noiseValue, noiseValue, 1 );	
+	
+	output.RGBColor = finalColor;
+	
+	return output;
+}

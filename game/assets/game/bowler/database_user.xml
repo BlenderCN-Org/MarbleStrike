@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<database>
+  <data level="1" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="2" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="3" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="4" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="5" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="6" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="7" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="8" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="9" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="10" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="11" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="12" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="13" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="14" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <data level="15" collected="0" time_best="0" timeattack_best="0" completed="false" />
+  <control_position value="0"/>
+</database>

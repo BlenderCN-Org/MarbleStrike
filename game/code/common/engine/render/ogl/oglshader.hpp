@@ -1,0 +1,53 @@
+#if defined( RENDER_PLAT_OPENGL )
+
+#ifndef OGL_SHADER_HPP
+#define OGL_SHADER_HPP
+
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#include "common/engine/render/ogl/oglwrapper.hpp"
+#include "common/engine/system/array.hpp"
+#include "common/engine/system/fixedstring.hpp"
+#include "common/engine/system/list.hpp"
+#include <vector>
+
+//////////////////////////////////////////////////////
+// FORWARD DECLARATIONS
+//////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////
+// STRUCTURES
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// CLASSES
+//////////////////////////////////////////////////////
+
+class OGLShader
+{
+public:
+
+	OGLShader();
+	virtual ~OGLShader();
+
+	int GetHandle()
+	{
+		return mShaderHandle;
+	}
+
+protected:
+
+	void LoadShader( const char* filename );	
+	void CreateShaderObject( GLenum shaderType );
+		
+private:
+		
+	int mShaderHandle;
+	
+};
+
+#endif
+
+#endif

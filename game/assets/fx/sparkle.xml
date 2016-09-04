@@ -1,0 +1,29 @@
+<Name value="sparkle"/>
+
+<MaxParticles value="96"/>
+
+<EmissionRange min="10" max="1000"/>
+
+<SizeRange min="1" max="1"/>
+
+<ShrinkRange min="0.3" max="0.5"/>
+
+<VelocityXRange min="-15" max="15"/>
+
+<VelocityYRange min="-15" max="15"/>
+
+<VelocityZRange min="-15" max="15"/>
+
+<LifeRange min="1" max="3"/>
+
+<DecayRange min="5" max="5"/>
+
+<ColorRange rmin="147" gmin="187" bmin="153" rmax="41" gmax="0" bmax="164"/>
+
+<AlphaRange min="255" max="255"/>
+
+<EmitTime value="-1"/>
+
+<Texture name="fx\particletexture"/>
+
+<?xml version="1.0" encoding="UTF-8"?>

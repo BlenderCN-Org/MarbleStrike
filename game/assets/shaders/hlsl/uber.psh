@@ -1,0 +1,80 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+uniform float4 gDiffuseColor;
+uniform float4 gSpecularColor;
+uniform float4 gLightColor;
+uniform float4 gReflectivity;
+
+Texture2D gColorTexture;
+SamplerState gColorTextureState;
+Texture2D gShadowTexture;
+SamplerState gShadowTextureState;
+TextureCube gCubeMap;
+SamplerState gCubeMapState;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float3 Normal : TEXCOORD0;
+	float3 LightDirection : TEXCOORD1;
+	float3 CameraDirection : TEXCOORD2;
+	float2 TexCoord : TEXCOORD3;
+	float4 PosLight : TEXCOORD4;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+
+	float shadow = 1.0;
+    
+    float3 n = normalize( IN.Normal );		
+	
+	float2 shadowTexCoord = 0.5 * ( IN.PosLight.xy / IN.PosLight.w ) + float2( 0.5, 0.5 );
+	shadowTexCoord.y = 1.0f - shadowTexCoord.y;
+	float depth = IN.PosLight.z / IN.PosLight.w;
+
+	float4 depthMap = float4(0,0,0,0);
+	depthMap.x = gShadowTexture.Sample( gShadowTextureState, shadowTexCoord ).x;
+	depthMap.y = gShadowTexture.Sample( gShadowTextureState, shadowTexCoord + float2( 1.0 / 512.0, 0 ) ).x;
+	depthMap.z = gShadowTexture.Sample( gShadowTextureState, shadowTexCoord + float2( 0, 1.0 / 512.0 ) ).x;
+	depthMap.w = gShadowTexture.Sample( gShadowTextureState, shadowTexCoord + float2( 1.0 / 512.0, 1.0 / 512.0 ) ).x;
+
+	float4 inLight = depth < depthMap;
+	shadow = dot( inLight, float4( 0.25, 0.25, 0.25, 0.25 ) );	
+	
+	float3 lightDirection = normalize( IN.LightDirection );
+	float diffuse = saturate( max( dot( n, lightDirection ), 0.0 ) );
+	float3 reflectLight = reflect( -lightDirection, n );
+	float3 viewDirection = normalize( IN.CameraDirection );
+	float specular = pow( max( dot( reflectLight, viewDirection ), 0.0), gSpecularColor.a );
+	
+	float3 reflectView = reflect( -viewDirection, n );
+	float4 envMapColor = gCubeMap.Sample( gCubeMapState, reflectView );
+	float4 texColor = gColorTexture.Sample( gColorTextureState, IN.TexCoord );		
+
+	float3 diffuseColor = gLightColor.rgb * texColor.rgb * gDiffuseColor.rgb * diffuse;	
+	float3 specularColor = gLightColor.rgb * gSpecularColor.rgb * specular;
+
+	float3 finalDiffuse = lerp( diffuseColor, envMapColor.rgb, gReflectivity.x );
+
+	float3 finalColor = finalDiffuse + specularColor;
+	float alpha = texColor.a * gDiffuseColor.a;
+        	
+	finalColor *= shadow;
+	output.Color = float4( finalColor, alpha );
+
+	return output;
+}

@@ -1,0 +1,45 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+static const float4 gBrickColor = float4( 1.0, 0.0, 0.0, 1.0 );
+static const float4 gMortarColor = float4( 0.0, 0.0, 0.0, 1.0 );
+static const float4 gBrickSize = float4( 0.5, 0.5, 0.0, 0.0 );
+static const float4 gBrickPct = float4( 0.8, 0.8, 0.0, 0.0 );
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float3 Normal : TEXCOORD0;
+	float3 WorldPosition : TEXCOORD1;	
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+
+	float2 position = IN.WorldPosition.xy / gBrickSize.xy;
+
+	if ( frac( position.y * 0.5 ) > 0.5)
+	{
+		position.x += 0.5;
+	}
+
+	position = frac(position);
+	float2 useBrick = step( position, gBrickPct.xy );
+	float3 color = lerp( gMortarColor.xyz, gBrickColor.xyz, useBrick.x * useBrick.y );
+
+    output.Color = float4( color, 1 );
+	
+	return output;
+}

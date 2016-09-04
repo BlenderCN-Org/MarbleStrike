@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<DepthStencilState>
+  <Name value="zlessequalwritestencil" />
+  <DepthEnable value="0" />
+  <DepthWriteMask value="1" />
+  <DepthFunc value="CompareFunc_Less_Equal" />
+  <StencilEnable value="1" />
+  <StencilReadMask value="255" />
+  <StencilWriteMask value="255" />
+  <StencilRef value="0" />
+  <FrontFace>
+    <StencilFailOp value="StencilOp_Keep" />
+    <StencilDepthFailOp value="StencilOp_Keep" />
+    <StencilPassOp value="StencilOp_Keep" />
+    <StencilFunc value="CompareFunc_Equal" />
+  </FrontFace>
+  <BackFace>
+    <StencilFailOp value="StencilOp_Keep" />
+    <StencilDepthFailOp value="StencilOp_Keep" />
+    <StencilPassOp value="StencilOp_Keep" />
+    <StencilFunc value="CompareFunc_Never" />
+  </BackFace>
+</DepthStencilState>

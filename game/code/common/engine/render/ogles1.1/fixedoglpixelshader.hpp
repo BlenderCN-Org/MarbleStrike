@@ -1,0 +1,54 @@
+#if defined( RENDER_PLAT_OGLES1_1)
+
+#ifndef FIXED_OGL_PIXEL_SHADER_HPP
+#define FIXED_OGL_PIXEL_SHADER_HPP
+
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#include "common/engine/render/pixelshader.hpp"
+
+//////////////////////////////////////////////////////
+// FORWARD DECLARATIONS
+//////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////
+// STRUCTURES
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// CLASSES
+//////////////////////////////////////////////////////
+
+class FixedOGLPixelShader : public PixelShader
+{
+public:
+
+	FixedOGLPixelShader();
+	~FixedOGLPixelShader();
+
+	void Load( const char* path, const char* name );
+	void Reload()
+	{
+
+	}
+
+	int GetCurrentSamplerIndex();
+
+	int GetHandle()
+	{
+		return mShaderHandle;
+	}
+		
+private:
+
+	void LoadShader( const char* fileName );
+
+	int mShaderHandle;
+	int mCurrentTextureHandle;
+};
+
+#endif
+
+#endif

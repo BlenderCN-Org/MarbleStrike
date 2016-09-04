@@ -1,0 +1,45 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+float4 gPixelSize;
+Texture2D gTexture0;
+SamplerState gTextureState;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PS_INPUT
+{
+    float4 Position : SV_POSITION;
+    float2 TexCoord : TEXCOORD0;
+};
+
+struct PS_OUTPUT
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+PS_OUTPUT PSMain( PS_INPUT IN )
+{ 
+    PS_OUTPUT output;
+   
+	float result = 0.0;
+	for ( int i = 0; i < 4; ++i ) 
+	{
+		for ( int j = 0; j < 4; ++j ) 
+		{
+			float2 offset = float2( gPixelSize.x * float( j ), gPixelSize.y * float( i ) );
+			result += gTexture0.Sample( gTextureState, IN.TexCoord + offset).r;
+		}
+	}
+	
+	float finalColor = result * 0.0625;	
+        
+    output.Color =  float4( finalColor, finalColor, finalColor, 1.0 );
+        
+    return output;  
+}

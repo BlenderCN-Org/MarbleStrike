@@ -1,0 +1,37 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+
+float4 pack_depth(const float depth)
+{
+	const float4 bit_shift = float4(256.0*256.0*256.0, 256.0*256.0, 256.0, 1.0);
+	const float4 bit_mask  = float4(0.0, 1.0/256.0, 1.0/256.0, 1.0/256.0);
+	float4 res = frac(depth * bit_shift);
+	res -= res.xxyz * bit_mask;
+	return res;
+}
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PS_INPUT
+{
+    float4 Position : SV_POSITION;
+	float4 DepthPosition : TEXCOORD0;
+};
+
+struct PS_OUTPUT
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+PS_OUTPUT PSMain( PS_INPUT IN )
+{ 
+    PS_OUTPUT output;  
+	float depth = IN.DepthPosition.z / IN.DepthPosition.w;  
+    output.Color = pack_depth( depth );	
+    return output;  
+}

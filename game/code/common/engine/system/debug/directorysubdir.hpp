@@ -1,0 +1,46 @@
+#ifndef DIRECTORY_SUB_DIR_HPP
+#define DIRECTORY_SUB_DIR_HPP
+
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#include "common/engine/system/debug/directoryitem.hpp"
+#include "common/engine/system/list.hpp"
+
+//////////////////////////////////////////////////////
+// DEFINES
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// FORWARD DELCARATION
+//////////////////////////////////////////////////////
+
+namespace System
+{
+	class DirectoryItem;
+}
+
+//////////////////////////////////////////////////////
+// CLASSES
+//////////////////////////////////////////////////////
+
+namespace System
+{  
+	class DirectorySubDir : public DirectoryItem
+	{
+	public:
+		DirectorySubDir();
+		~DirectorySubDir();
+
+		List<DirectoryItem*>* GetDirectoryList();
+		DirectorySubDir* GetPreviousDirectoryItem();
+		void SetPreviousDirectoryItem( DirectorySubDir* directory );
+
+	private:
+		List<DirectoryItem*> mDirectory;
+		DirectorySubDir* mPreviousDirectory;
+	};      
+}
+
+#endif 

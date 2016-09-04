@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<effect>
+  <usage>
+    <stream num="0" datatype="POSITION0" shaderinput="POSITION0" format="float3"/>
+    <stream num="0" datatype="TEXCOORD0" shaderinput="TEXCOORD0" format="float2"/>
+  </usage>
+
+  <technique name="skydome">
+    <pass name="P0">
+      <depthstencil name="zlessequal"/>
+      <blend name="noblend"/>
+      <rasterizer name="backcull"/>
+      <sampler name="gColorTexture" state="linear"/>      
+      <vertexshader name="skydome" profile="vs_3_0" />
+      <pixelshader name="skydome" profile="ps_3_0"/>
+    </pass>
+  </technique>
+  
+</effect>

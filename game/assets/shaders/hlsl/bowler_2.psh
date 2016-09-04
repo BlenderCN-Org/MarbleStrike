@@ -1,0 +1,76 @@
+//--------------------------------------------------------------------------------------
+// INCLUDES
+//--------------------------------------------------------------------------------------
+#include "shadow.h"
+
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+uniform float4 gDiffuseColor;
+uniform float4 gSpecularColor;
+uniform float4 gLightColor;
+uniform float4 gLightDirection;
+
+
+Texture2D gShadowTexture;
+SamplerState gShadowTextureState;
+Texture2D gColorTexture;
+SamplerState gColorTextureState;
+Texture2D gToonTexture;
+SamplerState gToonTextureState;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float3 Normal : TEXCOORD0;	
+	float3 CameraDirection : TEXCOORD1;
+	float2 TexCoord : TEXCOORD2;
+	float4 PosLight : TEXCOORD3;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+
+	float shadow = Shadow( gShadowTexture, gShadowTextureState, IN.PosLight );
+	shadow = shadow * 0.25 + 0.75;
+    
+	float3 n = normalize( IN.Normal );		
+		
+	float3 lightDirection = normalize( -gLightDirection.xyz );
+	float diffuse = ( max( dot( n, lightDirection ), 0.0 ) );
+
+	float3 reflectLight = reflect( -lightDirection, n );
+	float3 viewDirection = normalize( IN.CameraDirection );
+	float specular = pow( max( dot( reflectLight, viewDirection ), 0.0), gSpecularColor.a );
+	
+	float4 texColor = gColorTexture.Sample( gColorTextureState, IN.TexCoord );
+	float3 diffuseColor = gLightColor.rgb * texColor.rgb * gDiffuseColor.rgb;	
+
+	float3 specularColor = gLightColor.rgb * gSpecularColor.rgb;
+		
+	float4 toonDiffuse = gToonTexture.Sample( gToonTextureState, float2( diffuse, 0 ) );
+	float3 finalDiffuse = diffuseColor * toonDiffuse.rgb;
+	float3 finalSpecular = specularColor * specular;
+
+	float rim = smoothstep( 0.5 , 1.0 , pow( abs( 1.0 - dot( n, viewDirection ) ), 0.5 ) );
+
+	float3 finalColor = finalDiffuse + finalSpecular + float3( rim, rim, rim ) * 0.6;
+	float alpha = texColor.a * gDiffuseColor.a;
+	finalColor.rgb *= shadow;
+    
+	output.Color = float4( finalColor, alpha );
+
+	return output;
+}

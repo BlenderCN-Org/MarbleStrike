@@ -1,0 +1,99 @@
+//--------------------------------------------------------------------------------------
+// INCLUDES
+//--------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------
+// DEFINES
+//--------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+#define gTextureHiRes gTexture0
+#define gTextureLowRes gTexture1
+#define gTextureDepth gTexture2
+
+Texture2D gTextureHiRes;
+SamplerState gTextureHiResState;
+Texture2D gTextureLowRes;
+SamplerState gTextureLowResState;
+Texture2D gTextureDepth;
+SamplerState gTextureDepthState;
+
+#define near gDoFParams.z
+#define Q gDoFParams.w
+#define focusDist gDoFParams.x
+#define focusRange  gDoFParams.y
+
+#define focalLength gDoFParams2.x
+#define fStop gDoFParams2.y
+
+float4 gDoFParams;
+float4 gDoFParams2;
+float4 gOffset;
+float4 gSampleOffsets[12];
+
+//--------------------------------------------------------------------------------------
+// CONSTANTS
+//--------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------
+// GLOBAL FUNCTIONS
+//--------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PS_INPUT
+{
+    float4 Position : SV_POSITION;
+    float2 TexCoord : TEXCOORD0;
+};
+
+struct PS_OUTPUT
+{
+    float4 RGBColor : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+PS_OUTPUT PSMain( PS_INPUT IN )
+{ 
+    PS_OUTPUT output;
+    
+	float4 depthTexel = gTextureDepth.Sample( gTextureDepthState, IN.TexCoord );
+	float viewZ = ( -near * Q ) / ( depthTexel.x - Q );
+
+	/*
+	float CoC = abs( ( ( viewZ - focusDist ) * focalLength * focalLength ) / ( viewZ * fStop * ( focusDist - focalLength ) ) );
+	float4 colorSum = gTextureHiRes.Sample( gTextureHiResState, IN.TexCoord );
+	float totalContribution = 1.0f;
+	for ( int i = 0; i < 12; i++ )
+	{
+		float value = saturate( CoC / 15.0f ) * 15.0f;
+		float2 tapCoord = IN.TexCoord + gSampleOffsets[i].xy * value;
+		float4 tapColor = gTextureHiRes.Sample( gTextureHiResState, tapCoord );
+		float4 tapDepthTexel = gTextureDepth.Sample( gTextureDepthState, tapCoord );
+		float tapViewZ = ( -near * Q ) / ( tapDepthTexel.x - Q );
+		//float tapCoC = abs( ( tapViewZ - focusDist ) * focalLength * focalLength ) / ( tapViewZ * fStop * ( focusDist - focalLength ) );
+
+		float tapContribution = (tapViewZ.x > viewZ.x) ? 1.0f : 0.0f;
+
+		colorSum += tapColor * tapContribution;
+		totalContribution += tapContribution;
+	}
+	float3 color = colorSum.rgb / totalContribution;
+	*/
+
+	float4 sceneTexel = gTextureHiRes.Sample( gTextureHiResState, IN.TexCoord );
+	float4 blurTexel = gTextureLowRes.Sample( gTextureLowResState, IN.TexCoord );
+	float blurFactor = saturate( abs ( viewZ - focusDist ) / focusRange );
+	float3 color = lerp( sceneTexel.rgb, blurTexel.rgb, blurFactor );
+
+	float4 finalColor = float4( color, 1.0 );
+	output.RGBColor = finalColor;
+            
+    return output;  
+}

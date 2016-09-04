@@ -1,0 +1,99 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+Texture2D gMainTexture;
+SamplerState gMainTextureState;
+
+Texture2D gDepthTexture;
+SamplerState gDepthTextureState;
+
+float4 gSampleOffsets[9];
+
+float4 gDoFParams;
+#define near gDoFParams.z
+#define Q gDoFParams.w
+
+static const float edgeForce = 0;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float2 TexCoord : TEXCOORD0;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+float depth( float2 texCoord )
+{
+	float4 depthTexel = gDepthTexture.Sample( gDepthTextureState, texCoord );
+	//float viewZ = -n / (-1.0+float(depthTexel.x) * ((f-n)/f));
+	float viewZ = ( -near * Q ) / ( depthTexel.x - Q );
+	return viewZ / 5.0f;
+}
+
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+
+	float4 sample[9];
+    float4 texcol = gMainTexture.Sample( gMainTextureState, IN.TexCoord );
+	//for ( int i = 0; i < 9; i++ )
+    //{
+	//	float4 depthTexel = gDepthTexture.Sample( gDepthTextureState, IN.TexCoord.xy + gSampleOffsets[i].xy );
+	//	float viewZ = -n / (-1.0+float(depthTexel.x) * ((f-n)/f));
+    //    sample[i] = viewZ;
+    //}
+
+	float s00 = depth( IN.TexCoord.xy + gSampleOffsets[0].xy);
+	float s01 = depth( IN.TexCoord.xy + gSampleOffsets[1].xy);
+	float s02 = depth( IN.TexCoord.xy + gSampleOffsets[2].xy);
+
+	float s10 = depth( IN.TexCoord.xy + gSampleOffsets[3].xy);
+	float s12 = depth( IN.TexCoord.xy + gSampleOffsets[5].xy);
+
+	float s20 = depth( IN.TexCoord.xy + gSampleOffsets[6].xy);
+	float s21 = depth( IN.TexCoord.xy + gSampleOffsets[7].xy);
+	float s22 = depth( IN.TexCoord.xy + gSampleOffsets[8].xy);
+
+	// Sobel filter in X and Y directions
+	float sobelX = s00 + 2 * s10 + s20 - s02 - 2 * s12 - s22;
+	float sobelY = s00 + 2 * s01 + s02 - s20 - 2 * s21 - s22;
+	
+	// Find edge using a threshold of 0.07 which is sufficient
+	// to detect most edges.
+	float edgeSqr = (sobelX * sobelX + sobelY * sobelY);
+	float final = 1.0-(edgeSqr > 20);
+
+	float4 finalColor = texcol * float4( final, final, final ,1 );
+
+/*
+	float4 areaMx = max(sample[0], max(sample[1], max(sample[2], max(sample[3], max(sample[5], max(sample[6], max(sample[7], sample [8])))))));
+    float4 areaMn = min(sample[0], min(sample[1], min(sample[2], min(sample[3], min(sample[5], min(sample[6], min(sample[7], sample [8])))))));
+    
+    float colDifForce = ( ( dot( ( areaMx - areaMn ).xyz, float3(1,0,0) ) ) );
+    
+	
+    if (colDifForce > 0.1)
+    {
+        finalColor = float4((texcol*edgeForce).xyz, 1.0);
+    }
+	else
+	{
+        finalColor = float4(texcol);
+    }
+  */  
+    //float4 finalColor = gMainTexture.Sample( gMainTextureState, IN.TexCoord );   
+    output.Color = finalColor;
+	    
+    return output;  
+}

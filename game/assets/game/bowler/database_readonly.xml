@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<database>
+  <data level="1" attacktime="12" numToUnlock="0" bgm="music1"/>
+  <data level="2" attacktime="20" numToUnlock="0" bgm="music1"/>
+  <data level="3" attacktime="17" numToUnlock="1" bgm="music1"/>
+  <data level="4" attacktime="19" numToUnlock="1" bgm="music1"/>
+  <data level="5" attacktime="27" numToUnlock="2" bgm="music1"/>
+  <data level="6" attacktime="31" numToUnlock="10" bgm="music1"/>
+  <data level="7" attacktime="43" numToUnlock="10" bgm="music1"/>
+  <data level="8" attacktime="34" numToUnlock="20" bgm="music1"/>
+  <data level="9" attacktime="53" numToUnlock="20" bgm="music1"/>
+  <data level="10" attacktime="62" numToUnlock="30" bgm="music1"/>
+  <data level="11" attacktime="69" numToUnlock="30" bgm="music1"/>
+  <data level="12" attacktime="56" numToUnlock="40" bgm="music1"/>
+  <data level="13" attacktime="76" numToUnlock="50" bgm="music1"/>
+  <data level="14" attacktime="92" numToUnlock="55" bgm="music1"/>
+  <data level="15" attacktime="37" numToUnlock="60" bgm="music1"/>
+</database>

@@ -1,0 +1,45 @@
+#if defined( RENDER_PLAT_OGLES2 )
+
+#ifndef OGL_PIXEL_SHADER_HPP
+#define OGL_PIXEL_SHADER_HPP
+
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#include "common/engine/render/ogles2/oglesshader.hpp"
+#include "common/engine/render/pixelshader.hpp"
+#include "common/engine/system/array.hpp"
+#include "common/engine/system/list.hpp"
+
+//////////////////////////////////////////////////////
+// FORWARD DECLARATIONS
+//////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////
+// STRUCTURES
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// CLASSES
+//////////////////////////////////////////////////////
+
+class OGLESPixelShader : public PixelShader, public OGLESShader
+{
+public:
+
+	OGLESPixelShader();
+	~OGLESPixelShader();
+
+	void Load( const char* path, const char* name );
+	void Reload();
+	int GetCurrentSamplerIndex();
+
+private:
+
+	int mCurrentTextureHandle;
+};
+
+#endif
+
+#endif

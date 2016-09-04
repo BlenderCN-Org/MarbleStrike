@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<RasterizerState>
+  <Name value="frontcull" />
+  <FillMode value="FillMode_Solid" />
+  <CullMode value="CullMode_Front" />
+  <FrontCounterClockwise value="1" />
+  <DepthBias value="0.0" />
+  <DepthBiasClamp value="0" />
+  <SlopeScaledDepthBias value="0.0" />
+  <DepthClipEnable value="0" />
+  <ScissorEnable value="0" />
+  <MultisampleEnable value="0" />
+  <AntialiasedLineEnable value="0" />
+</RasterizerState>

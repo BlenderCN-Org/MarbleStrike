@@ -1,0 +1,361 @@
+<ScreenProperties width="480" height="320" r="0" g="0" b="0"/>
+
+<GuiStatic id="1">
+    <Name value="Background"/>
+    <CurrentData>
+        <Size width="480" height="320"/>
+        <Position x="0" y="0"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="0.7" r="0" g="0" b="0" a="255"/>
+    <UV x="0" y="193" width="480" height="320"/>
+    <Texture name="game\bowler\gui\textures\options_layout_1"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiButton id="2">
+    <Name value="BackButton"/>
+    <CurrentData>
+        <Size width="111" height="53"/>
+        <Position x="177" y="-1"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="390" y="447" width="111" height="53"/>
+    <Texture name="game\bowler\gui\textures\options_layout_2"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="390" y="447" width="111" height="53"/>
+    <OnPressTexture name="game\bowler\gui\textures\options_layout_3"/>
+</GuiButton>
+
+<GuiStatic id="3">
+    <Name value="SummaryTitle"/>
+    <CurrentData>
+        <Size width="142" height="44"/>
+        <Position x="169" y="275"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="83" y="132" width="142" height="44"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="4">
+    <Name value="level01title"/>
+    <CurrentData>
+        <Size width="37" height="35"/>
+        <Position x="79" y="202"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="15" horizontalAlignment="centre" verticalAlignment="centre" size="0.7" r="252" g="194" b="109" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="5">
+    <Name value="level01collect"/>
+    <CurrentData>
+        <Size width="71" height="35"/>
+        <Position x="151" y="202"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="5/5" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="6">
+    <Name value="level01time"/>
+    <CurrentData>
+        <Size width="190" height="35"/>
+        <Position x="232" y="202"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="55&apos;55&quot;55" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="7">
+    <Name value="level02title"/>
+    <CurrentData>
+        <Size width="37" height="35"/>
+        <Position x="79" y="165"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="2" horizontalAlignment="centre" verticalAlignment="centre" size="0.7" r="252" g="194" b="109" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="8">
+    <Name value="level02collect"/>
+    <CurrentData>
+        <Size width="71" height="35"/>
+        <Position x="151" y="165"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="1/5" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="9">
+    <Name value="level02time"/>
+    <CurrentData>
+        <Size width="190" height="35"/>
+        <Position x="232" y="165"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="01&apos;02&quot;03" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="10">
+    <Name value="level03title"/>
+    <CurrentData>
+        <Size width="37" height="35"/>
+        <Position x="79" y="128"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="3" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="252" g="194" b="109" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="11">
+    <Name value="level03collect"/>
+    <CurrentData>
+        <Size width="71" height="35"/>
+        <Position x="151" y="128"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="1/5" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="12">
+    <Name value="level03time"/>
+    <CurrentData>
+        <Size width="190" height="35"/>
+        <Position x="232" y="128"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="01&apos;02&quot;03" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="13">
+    <Name value="level04title"/>
+    <CurrentData>
+        <Size width="37" height="35"/>
+        <Position x="79" y="91"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="4" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="252" g="194" b="109" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="14">
+    <Name value="level04collect"/>
+    <CurrentData>
+        <Size width="71" height="35"/>
+        <Position x="151" y="91"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="1/5" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="15">
+    <Name value="level04time"/>
+    <CurrentData>
+        <Size width="190" height="35"/>
+        <Position x="232" y="91"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="01&apos;02&quot;03" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="16">
+    <Name value="level05title"/>
+    <CurrentData>
+        <Size width="37" height="35"/>
+        <Position x="79" y="54"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="5" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="252" g="194" b="109" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="17">
+    <Name value="level05collect"/>
+    <CurrentData>
+        <Size width="71" height="35"/>
+        <Position x="151" y="54"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="1/5" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="18">
+    <Name value="level05time"/>
+    <CurrentData>
+        <Size width="190" height="35"/>
+        <Position x="232" y="54"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="1&apos;02&quot;03" horizontalAlignment="centre" verticalAlignment="top" size="0.7" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiButton id="19">
+    <Name value="LeftButton"/>
+    <CurrentData>
+        <Size width="61" height="58"/>
+        <Position x="123" y="-3"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="322" y="5" width="61" height="58"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="259" y="6" width="61" height="58"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_1"/>
+</GuiButton>
+
+<GuiButton id="20">
+    <Name value="RightButton"/>
+    <CurrentData>
+        <Size width="61" height="58"/>
+        <Position x="280" y="-3"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="448" y="5" width="61" height="58"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="385" y="7" width="61" height="58"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_1"/>
+</GuiButton>
+
+<GuiStatic id="21">
+    <Name value="level"/>
+    <CurrentData>
+        <Size width="117" height="33"/>
+        <Position x="39" y="237"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="Level" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="255" g="26" b="31" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="22">
+    <Name value="collect"/>
+    <CurrentData>
+        <Size width="33" height="33"/>
+        <Position x="171" y="237"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="0.7" r="255" g="26" b="31" a="255"/>
+    <UV x="137" y="8" width="100" height="106"/>
+    <Texture name="game\bowler\gui\textures\run_layout_2"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="23">
+    <Name value="timebest"/>
+    <CurrentData>
+        <Size width="203" height="33"/>
+        <Position x="223" y="237"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="Best Time" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="255" g="26" b="31" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="24">
+    <Name value="attacktimebest"/>
+    <CurrentData>
+        <Size width="250" height="33"/>
+        <Position x="200" y="237"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="Best Attack Time" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="255" g="26" b="31" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiButton id="25">
+    <Name value="ToggleView"/>
+    <CurrentData>
+        <Size width="122" height="46"/>
+        <Position x="356" y="1"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="0" g="0" b="0" a="255"/>
+    <UV x="8" y="62" width="122" height="46"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="10" y="10" width="122" height="46"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_1"/>
+</GuiButton>
+
+<?xml version="1.0" encoding="UTF-8"?>

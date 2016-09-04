@@ -1,0 +1,44 @@
+//--------------------------------------------------------------------------------------
+// INCLUDES
+//--------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+uniform float4 gDiffuseColor;
+
+Texture2D gColorTexture;
+SamplerState gColorTextureState;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+	float2 TexCoord : TEXCOORD2;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+
+	float4 texColor = gColorTexture.Sample( gColorTextureState, IN.TexCoord );
+	float3 diffuseColor = texColor.rgb * gDiffuseColor.rgb;	
+	float3 finalDiffuse = diffuseColor;
+
+	float3 finalColor = finalDiffuse;
+	float alpha = texColor.a * gDiffuseColor.a;
+	    
+	output.Color = float4( finalColor, alpha );
+
+	return output;
+}

@@ -1,0 +1,38 @@
+//--------------------------------------------------------------------------------------
+// Global variables
+//--------------------------------------------------------------------------------------
+Texture2D gTexture;
+SamplerState gTextureState;
+
+//--------------------------------------------------------------------------------------
+// Output structure
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float4 Color : COLOR;    
+    float2 TexCoord : TEXCOORD1;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// Pixel shader
+//--------------------------------------------------------------------------------------
+
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+     
+	float4 finalColor = IN.Color;
+		
+	float4 texColor = gTexture.Sample( gTextureState, IN.TexCoord );
+	finalColor *= texColor;
+	
+	output.Color = finalColor;
+    
+    return output;  
+}

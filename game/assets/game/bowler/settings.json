@@ -1,0 +1,19 @@
+{
+    "Settings": 
+    {
+        "JoystickControlPositionLeft": 70,
+        "JoystickControlPositionRight": 410,
+        "JumpControlPositionLeft": 40,
+        "JumpControlPositionRight": 440,
+        "JoystickSize": 80,
+        "JoystickControlPositionHeight": 260,
+        "CircleGraphicSize": 80,
+        "ThumbGraphicSize": 80,
+        "JumpGrahpicSize": 32,
+        "JumpControlPositionHeight": 260,
+        "JumpControlWidth": 70,
+        "JoyStickCircleTextureFilename": "game\\bowler\\textures\\joystickcircle",
+        "JoyStickThumbTextureFilename": "game\\bowler\\textures\\joystickthumb",
+        "JumpIconTextureFilename": "game\\bowler\\textures\\jump_icon"
+    }
+}

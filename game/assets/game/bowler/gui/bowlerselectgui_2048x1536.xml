@@ -1,0 +1,583 @@
+<ScreenProperties width="2048" height="1536" r="0" g="0" b="0"/>
+
+<GuiStatic id="1">
+    <Name value="Background"/>
+    <CurrentData>
+        <Size width="2048" height="1536"/>
+        <Position x="0" y="0"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="0" y="513" width="10" height="1535"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="2">
+    <Name value="Cloud0"/>
+    <CurrentData>
+        <Size width="920" height="592"/>
+        <Position x="239" y="-133"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="1086" y="1001" width="920" height="592"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="3">
+    <Name value="Cloud1"/>
+    <CurrentData>
+        <Size width="560" height="374"/>
+        <Position x="129" y="1068"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="1465" y="1625" width="560" height="374"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="4">
+    <Name value="Cloud2"/>
+    <CurrentData>
+        <Size width="299" height="209"/>
+        <Position x="1596" y="932"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="1010" y="1710" width="299" height="209"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiButton id="5">
+    <Name value="OptionsButton"/>
+    <CurrentData>
+        <Size width="499" height="179"/>
+        <Position x="775" y="0"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="255" g="116" b="13" a="255"/>
+    <UV x="1499" y="753" width="499" height="179"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="1499" y="531" width="499" height="179"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_1_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="6">
+    <Name value="Button15"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="1719" y="268"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="1176" y="1218" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="1163" y="431" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="7">
+    <Name value="Button14"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="1311" y="268"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="903" y="1219" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="892" y="430" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="8">
+    <Name value="Button13"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="903" y="268"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="634" y="1220" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="621" y="430" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="9">
+    <Name value="Button12"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="495" y="268"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="360" y="1217" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="350" y="431" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="10">
+    <Name value="Button11"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="87" y="268"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="87" y="1219" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="77" y="430" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="11">
+    <Name value="Button10"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="1719" y="674"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="1174" y="1454" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="1164" y="663.5" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="12">
+    <Name value="Button09"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="1311" y="674"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="905" y="1453" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="893" y="663" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="13">
+    <Name value="Button08"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="903" y="674"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="631" y="1452" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="621" y="663" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="14">
+    <Name value="Button07"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="495" y="674"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="360" y="1454" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="350" y="664" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="15">
+    <Name value="Button06"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="87" y="674"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="90" y="1453" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="78" y="663" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="16">
+    <Name value="Button05"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="1719" y="1080"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="1174" y="1685" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="1164" y="896.5" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="17">
+    <Name value="Button04"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="1311" y="1080"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="903" y="1684" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="892" y="897" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="18">
+    <Name value="Button03"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="903" y="1080"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="632" y="1685" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="622" y="897.5" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="19">
+    <Name value="Button02"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="495" y="1080"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="358" y="1683" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="350" y="896.667" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiButton id="20">
+    <Name value="Button01"/>
+    <CurrentData>
+        <Size width="234" height="234"/>
+        <Position x="87" y="1080"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="89" y="1684" width="234" height="234"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="78" y="897" width="234" height="234"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+</GuiButton>
+
+<GuiStatic id="21">
+    <Name value="Count15"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="1719" y="268"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="22">
+    <Name value="Count14"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="1311" y="268"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="23">
+    <Name value="Count13"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="903" y="268"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="24">
+    <Name value="Count12"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="495" y="268"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="25">
+    <Name value="Count11"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="87" y="268"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="26">
+    <Name value="Count10"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="1719" y="674"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="27">
+    <Name value="Count09"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="1311" y="674"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="28">
+    <Name value="Count08"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="903" y="674"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="29">
+    <Name value="Count07"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="495" y="674"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="30">
+    <Name value="Count06"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="87" y="674"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="31">
+    <Name value="Count05"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="1719" y="1080"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="32">
+    <Name value="Count04"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="1311" y="1080"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="33">
+    <Name value="Count03"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="903" y="1080"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="34">
+    <Name value="Count02"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="495" y="1080"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="35">
+    <Name value="Count01"/>
+    <CurrentData>
+        <Size width="234" height="84"/>
+        <Position x="87" y="1080"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="0" horizontalAlignment="right" verticalAlignment="centre" size="2" r="134" g="168" b="247" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_2_2048x1536"/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="36">
+    <Name value="CollectIcon"/>
+    <CurrentData>
+        <Size width="104" height="123"/>
+        <Position x="1694" y="1397"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="1180" y="711" width="104" height="123"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="37">
+    <Name value="CollectText"/>
+    <CurrentData>
+        <Size width="233" height="86"/>
+        <Position x="1791" y="1401"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="x100" horizontalAlignment="left" verticalAlignment="centre" size="2" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiButton id="38">
+    <Name value="StatsButton"/>
+    <CurrentData>
+        <Size width="133" height="130"/>
+        <Position x="1912" y="13"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="711" y="641" width="133" height="130"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="713" y="429" width="133" height="130"/>
+    <OnPressTexture name="game\bowler\gui\textures\selection_layout_1_2048x1536"/>
+</GuiButton>
+
+<GuiStatic id="39">
+    <Name value="WorldTitle"/>
+    <CurrentData>
+        <Size width="418" height="127"/>
+        <Position x="815" y="1400"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="501" y="1170" width="418" height="127"/>
+    <Texture name="game\bowler\gui\textures\selection_layout_1_2048x1536"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<?xml version="1.0" encoding="UTF-8"?>

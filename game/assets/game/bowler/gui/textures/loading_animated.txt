@@ -1,0 +1,10 @@
+loading_animated_01 = 0 0 90 90
+loading_animated_02 = 90 0 90 90
+loading_animated_03 = 0 90 90 90
+loading_animated_04 = 90 90 90 90
+loading_animated_05 = 180 0 90 90
+loading_animated_06 = 180 90 90 90
+loading_animated_07 = 270 0 90 90
+loading_animated_08 = 360 0 90 90
+loading_animated_09 = 270 90 90 90
+loading_animated_10 = 360 90 90 90

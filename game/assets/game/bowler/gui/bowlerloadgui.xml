@@ -1,0 +1,29 @@
+<ScreenProperties width="480" height="320" r="0" g="0" b="0"/>
+
+<GuiStatic id="1">
+    <Name value="Background"/>
+    <CurrentData>
+        <Size width="480" height="320"/>
+        <Position x="0" y="0"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="0.7" r="0" g="0" b="0" a="255"/>
+    <UV x="0" y="193" width="480" height="320"/>
+    <Texture name="game\bowler\gui\textures\loading"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiSprite id="2">
+    <Name value="LoadingIcon"/>
+    <CurrentData>
+        <Size width="90" height="90"/>
+        <Position x="319" y="109"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <TextureFile value="game\bowler\gui\textures\loading_animated"/>
+    <fps value="10"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiSprite>
+
+<?xml version="1.0" encoding="UTF-8"?>

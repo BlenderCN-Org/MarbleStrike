@@ -1,0 +1,53 @@
+#ifndef PIXEL_SHADER_HPP
+#define PIXEL_SHADER_HPP
+
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#include "common/engine/system/array.hpp"
+
+//////////////////////////////////////////////////////
+// FORWARD DECLARATIONS
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// STRUCTURES
+//////////////////////////////////////////////////////
+
+struct SamplerIndexPair
+{
+	int mSamplerIndex;
+	char mSamplerName[32];	
+};
+
+//////////////////////////////////////////////////////
+// CLASSES
+//////////////////////////////////////////////////////
+
+class PixelShader
+{
+public:
+
+	PixelShader();
+	virtual ~PixelShader();
+
+	virtual void Load( const char* path, const char* name ) = 0;
+	virtual void Reload() = 0;
+	
+	int GetSamplerIndex( const char* name );
+	void AddSamplerIndexPair( const char* name, int index );
+
+	const char* GetFilename()
+	{
+		return mFilename;
+	}
+
+protected:
+
+	char mFilename[256];
+	Array<SamplerIndexPair*> mSamplerIndexPairs;
+
+};
+
+#endif

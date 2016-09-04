@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<effect>
+  <usage>
+    <stream num="0" datatype="POSITION0" shaderinput="POSITION0" format="float3"/>
+    <stream num="0" datatype="TEXCOORD0" shaderinput="TEXCOORD0" format="float2"/>
+  </usage>
+
+  <technique name="post_pass">
+    <pass name="P0">
+      <depthstencil name="no_ztest_no_zwrite"/>
+      <blend name="noblend"/>
+      <rasterizer name="nocull"/>
+      <sampler name="gMainTexture" state="post"/>
+      <vertexshader name="post_vertex" profile="vs_3_0" />
+      <pixelshader name="post_pass" profile="ps_3_0"/>
+    </pass>
+  </technique>
+<!--
+  <technique name="post_pass_ssao">
+    <pass name="P0">
+      <depthstencil name="no_ztest_no_zwrite"/>
+      <blend name="noblend"/>
+      <rasterizer name="nocull"/>
+      <sampler name="gMainTexture" state="post"/>
+      <sampler name="gSSAOTexture" state="post"/>
+      <vertexshader name="post_vertex" profile="vs_3_0" />
+      <pixelshader name="post_pass_ssao" profile="ps_3_0"/>
+    </pass>
+  </technique>
+
+  <technique name="post_luminance">
+    <pass name="P0">
+      <depthstencil name="no_ztest_no_zwrite"/>
+      <blend name="noblend"/>
+      <rasterizer name="nocull"/>
+      <sampler name="gTexture0" state="post"/>
+      <vertexshader name="post_vertex" profile="vs_3_0" />
+      <pixelshader name="post_passluminance" profile="ps_3_0"/>
+    </pass>
+  </technique>
+-->  
+</effect>

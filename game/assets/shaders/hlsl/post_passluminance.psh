@@ -1,0 +1,44 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+Texture2D gTexture;
+SamplerState gTextureState;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PS_INPUT
+{
+    float4 Position : SV_POSITION;
+    float2 TexCoord : TEXCOORD0;
+};
+
+struct PS_OUTPUT
+{
+    float4 RGBColor : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+PS_OUTPUT PSMain( PS_INPUT In )
+{ 
+    PS_OUTPUT output;
+    
+	// Acquire the luminance from the texture
+    float4 l = gTexture.Sample( gTextureState, In.TexCoord );
+        
+    // Compute a simple scalar, due to the values being > 1.0f
+    // the output is often all white, so just to make it a little
+    // more informative we can apply a scalar to bring it closer
+    // to the 0..1 range
+    float scalar = 1.0f;
+        
+    // Only the RED and GREEN channels have anything stored in them, but
+    // we're not interested in the maximum value, so we just use the red
+    // channel:
+    output.RGBColor = float4( l.r * scalar, l.r * scalar, l.r * scalar, 1.0f );  
+	    
+    return output;  
+}

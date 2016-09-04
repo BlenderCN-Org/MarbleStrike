@@ -1,0 +1,51 @@
+#if defined( RENDER_PLAT_D3D9 )
+
+#ifndef D3D_PIXEL_SHADER_HPP
+#define D3D_PIXEL_SHADER_HPP
+
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#include "common/engine/render/pixelshader.hpp"
+#include <d3d9.h>
+#include <d3dx9.h>
+
+//////////////////////////////////////////////////////
+// FORWARD DECLARATIONS
+//////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////
+// STRUCTURES
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// CLASSES
+//////////////////////////////////////////////////////
+
+class D3DPixelShader : public PixelShader
+{
+public:
+
+	D3DPixelShader();
+	~D3DPixelShader();
+
+	void Load( const char* path, const char* name );
+	void Reload();
+	void Dispatch();
+
+	LPD3DXCONSTANTTABLE GetConstantTable()
+	{
+		return mPixelConstantTable;
+	}	
+		
+private:
+
+	LPDIRECT3DPIXELSHADER9 mPixelShader;
+	LPD3DXCONSTANTTABLE mPixelConstantTable;
+
+};
+
+#endif
+
+#endif

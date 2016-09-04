@@ -1,0 +1,60 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+Texture2D gGBufferTexture;
+SamplerState gGBufferTextureState;
+float4x4 gProjectionToWorldMatrix;
+float4 gLightWorldPosition;
+float4 gLightDiffuseColor;
+float4 gLightRadius;
+float4 gOffset;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float2 TexCoord : TEXCOORD0;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+    
+    float2 texCoord = IN.TexCoord * 0.5 + 0.5;
+    texCoord.y = 1.0 - texCoord.y;
+            
+    float4 gBufferData = gGBufferTexture.Sample( gGBufferTextureState, texCoord + gOffset.xy * float2( 0.5, 0.5 ) );
+    float depth = gBufferData.w;
+    	
+	float4 hPosition = float4( IN.TexCoord.xy, depth, 1 );
+	float4 worldPosition = mul( hPosition, gProjectionToWorldMatrix );
+	worldPosition.xyzw /= worldPosition.w;
+		
+	float3 worldLightPosition = gLightWorldPosition.xyz;	
+	float3 lightDirection = worldPosition.xyz - worldLightPosition.xyz;
+	float distanceToLight = length( lightDirection );
+	lightDirection = normalize( lightDirection );
+	
+	float3 normalizedNormal = gBufferData.xyz;
+	float3 normal = ( normalizedNormal * 2.0 ) - 1.0;		
+	
+	float NdotL = max( dot( normal, -lightDirection ), 0.0 );
+	float4 finalColor = gLightDiffuseColor * NdotL;
+
+	float attenuation = 1.0 - distanceToLight / gLightRadius.x;
+    
+    output.Color = float4(finalColor.rgb * attenuation, 1.0 );    
+        
+    return output;  
+}

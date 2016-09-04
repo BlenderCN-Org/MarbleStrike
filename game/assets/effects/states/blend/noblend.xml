@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<BlendState>
+  <Name value="default" />
+  <AlphaToCoverageEnable value="0" />
+  <BlendEnable value="0" target="0" />
+  <BlendEnable value="0" target="1" />
+  <BlendEnable value="0" target="2" />
+  <BlendEnable value="0" target="3" />
+  <BlendEnable value="0" target="4" />
+  <BlendEnable value="0" target="5" />
+  <BlendEnable value="0" target="6" />
+  <BlendEnable value="0" target="7" />
+  <SrcBlend value="Blend_One" />
+  <DestBlend value="Blend_Zero" />
+  <BlendOp value="BlendOp_Add" />
+  <SrcBlendAlpha value="Blend_One" />
+  <DestBlendAlpha value="Blend_Zero" />
+  <BlendOpAlpha value="BlendOp_Add" />
+  <RenderTargetWriteMask r="255" g="255" b="255" a="255" target="0" />
+  <RenderTargetWriteMask r="0" g="0" b="0" a="0" target="1" />
+  <RenderTargetWriteMask r="0" g="0" b="0" a="0" target="2" />
+  <RenderTargetWriteMask r="0" g="0" b="0" a="0" target="3" />
+  <RenderTargetWriteMask r="0" g="0" b="0" a="0" target="4" />
+  <RenderTargetWriteMask r="0" g="0" b="0" a="0" target="5" />
+  <RenderTargetWriteMask r="0" g="0" b="0" a="0" target="6" />
+  <RenderTargetWriteMask r="0" g="0" b="0" a="0" target="7" />
+  <AlphaTestEnable value="0" />
+  <AlphaFunc value="AlphaFuncCompare_Never" />
+  <AlphaRef value="0" />
+</BlendState>

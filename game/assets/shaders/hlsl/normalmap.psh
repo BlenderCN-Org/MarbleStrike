@@ -1,0 +1,59 @@
+//--------------------------------------------------------------------------------------
+// PIXEL GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+uniform float4 gDiffuseColor;
+uniform float4 gEnableTexture;
+Texture2D gTexture;
+SamplerState gTextureState;
+uniform float4 gEnableNormalMapTexture;
+Texture2D gTextureNormalMap;
+SamplerState gTextureNormalMapState;
+uniform float4 gLightDiffuseColor;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PS_INPUT
+{
+    float4 Position : SV_POSITION;    
+	float2 TexCoord : TEXCOORD0;
+	float3 LightDirectionTangent : TEXCOORD1;
+};
+
+struct PS_OUTPUT
+{
+    float4 OutColor : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// MAIN
+//--------------------------------------------------------------------------------------
+PS_OUTPUT PSMain( PS_INPUT IN )
+{ 
+    PS_OUTPUT OUT = (PS_OUTPUT)0;
+	
+    //--------------------------------------------------------------------------------------
+	// Lighting
+	//--------------------------------------------------------------------------------------
+    float3 normal = ( gTextureNormalMap.Sample( gTextureNormalMapState, IN.TexCoord ) * 2.0 - 1.0 ).xyz;
+	float NdotL = max( dot( normal, normalize( IN.LightDirectionTangent ) ), 0.0 );	
+	float4 lightColor = gLightDiffuseColor * clamp( NdotL, 0.0, 1.0 );	
+	float4 finalColor = lightColor;
+
+	//--------------------------------------------------------------------------------------
+	// Diffuse Map
+	//--------------------------------------------------------------------------------------
+	if ( gEnableTexture.x )
+	{
+		float4 texColor = gTexture.Sample( gTextureState, IN.TexCoord );
+		finalColor *= texColor;
+	}	
+	else
+	{
+		finalColor *= gDiffuseColor;
+	}
+	
+	OUT.OutColor = finalColor;
+	    
+    return OUT;  
+}

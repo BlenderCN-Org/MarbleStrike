@@ -1,0 +1,307 @@
+<ScreenProperties width="480" height="320" r="0" g="0" b="0"/>
+
+<GuiStatic id="1">
+    <Name value="Background"/>
+    <CurrentData>
+        <Size width="480" height="320"/>
+        <Position x="0" y="0"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="0" y="192" width="480" height="320"/>
+    <Texture name="game\bowler\gui\textures\options_layout_1"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="2">
+    <Name value="OptionsTitle"/>
+    <CurrentData>
+        <Size width="138" height="43"/>
+        <Position x="171" y="272"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="0" y="137" width="138" height="43"/>
+    <Texture name="game\bowler\gui\textures\options_layout_1"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiButton id="3">
+    <Name value="BackButton"/>
+    <CurrentData>
+        <Size width="105" height="47"/>
+        <Position x="188" y="2"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="251" g="160" b="145" a="255"/>
+    <UV x="394" y="451" width="105" height="47"/>
+    <Texture name="game\bowler\gui\textures\options_layout_2"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="394" y="451" width="105" height="47"/>
+    <OnPressTexture name="game\bowler\gui\textures\options_layout_3"/>
+</GuiButton>
+
+<GuiButton id="4">
+    <Name value="ResetDataButton"/>
+    <CurrentData>
+        <Size width="382" height="75"/>
+        <Position x="47" y="195"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="362" width="382" height="75"/>
+    <Texture name="game\bowler\gui\textures\options_layout_4"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="0" y="362" width="382" height="75"/>
+    <OnPressTexture name="game\bowler\gui\textures\options_layout_5"/>
+</GuiButton>
+
+<GuiButton id="5">
+    <Name value="SwapControlButton"/>
+    <CurrentData>
+        <Size width="383" height="74"/>
+        <Position x="49" y="120"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="255" g="255" b="255" a="255"/>
+    <UV x="3" y="438" width="383" height="74"/>
+    <Texture name="game\bowler\gui\textures\options_layout_4"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="3" y="438" width="383" height="74"/>
+    <OnPressTexture name="game\bowler\gui\textures\options_layout_5"/>
+</GuiButton>
+
+<GuiButton id="6">
+    <Name value="CreditButton"/>
+    <CurrentData>
+        <Size width="383" height="74"/>
+        <Position x="49" y="45"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="255" g="255" b="255" a="255"/>
+    <UV x="3" y="280" width="383" height="74"/>
+    <Texture name="game\bowler\gui\textures\options_layout_4"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="3" y="280" width="383" height="74"/>
+    <OnPressTexture name="game\bowler\gui\textures\options_layout_5"/>
+</GuiButton>
+
+<GuiStatic id="7">
+    <Name value="ResetTitle"/>
+    <CurrentData>
+        <Size width="353" height="80"/>
+        <Position x="64" y="235"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="148" y="99" width="353" height="80"/>
+    <Texture name="game\bowler\gui\textures\options_layout_1"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiButton id="8">
+    <Name value="YesButton"/>
+    <CurrentData>
+        <Size width="378" height="78"/>
+        <Position x="51" y="140"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="255" g="255" b="255" a="255"/>
+    <UV x="2" y="123" width="378" height="78"/>
+    <Texture name="game\bowler\gui\textures\options_layout_2"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="2" y="123" width="378" height="78"/>
+    <OnPressTexture name="game\bowler\gui\textures\options_layout_3"/>
+</GuiButton>
+
+<GuiButton id="9">
+    <Name value="NoButton"/>
+    <CurrentData>
+        <Size width="380" height="75"/>
+        <Position x="50" y="56"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="255" g="255" b="255" a="255"/>
+    <UV x="2" y="43" width="380" height="75"/>
+    <Texture name="game\bowler\gui\textures\options_layout_2"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="2" y="43" width="380" height="75"/>
+    <OnPressTexture name="game\bowler\gui\textures\options_layout_3"/>
+</GuiButton>
+
+<GuiStatic id="10">
+    <Name value="ControlTitle"/>
+    <CurrentData>
+        <Size width="282" height="83"/>
+        <Position x="99" y="231"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="180" y="5" width="282" height="83"/>
+    <Texture name="game\bowler\gui\textures\options_layout_1"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiButton id="11">
+    <Name value="LeftButton"/>
+    <CurrentData>
+        <Size width="381" height="73"/>
+        <Position x="50" y="141"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="255" g="255" b="255" a="255"/>
+    <UV x="2" y="283" width="381" height="73"/>
+    <Texture name="game\bowler\gui\textures\options_layout_2"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="2" y="283" width="381" height="73"/>
+    <OnPressTexture name="game\bowler\gui\textures\options_layout_3"/>
+</GuiButton>
+
+<GuiButton id="12">
+    <Name value="RightButton"/>
+    <CurrentData>
+        <Size width="378" height="74"/>
+        <Position x="51" y="52"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="255" g="255" b="255" a="255"/>
+    <UV x="2" y="206" width="378" height="74"/>
+    <Texture name="game\bowler\gui\textures\options_layout_2"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="2" y="206" width="378" height="74"/>
+    <OnPressTexture name="game\bowler\gui\textures\options_layout_3"/>
+</GuiButton>
+
+<GuiStatic id="13">
+    <Name value="CreditTitle"/>
+    <CurrentData>
+        <Size width="149" height="49"/>
+        <Position x="166" y="270"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="3" y="88" width="149" height="49"/>
+    <Texture name="game\bowler\gui\textures\options_layout_1"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiButton id="14">
+    <Name value="CreditBackButton"/>
+    <CurrentData>
+        <Size width="105" height="47"/>
+        <Position x="188" y="2"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="centre" verticalAlignment="centre" size="0.5" r="251" g="160" b="145" a="255"/>
+    <UV x="394" y="451" width="105" height="47"/>
+    <Texture name="game\bowler\gui\textures\options_layout_2"/>
+    <Color r="255" g="255" b="255" a="255"/>
+    <OnPressUV x="394" y="451" width="105" height="47"/>
+    <OnPressTexture name="game\bowler\gui\textures\options_layout_3"/>
+</GuiButton>
+
+<GuiStatic id="15">
+    <Name value="CreditText01"/>
+    <CurrentData>
+        <Size width="324" height="30"/>
+        <Position x="78" y="233"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="Programming &amp; Design" horizontalAlignment="centre" verticalAlignment="top" size="0.5" r="233" g="218" b="39" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="16">
+    <Name value="CreditText02"/>
+    <CurrentData>
+        <Size width="158" height="31"/>
+        <Position x="161" y="198"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="Justin Lam" horizontalAlignment="centre" verticalAlignment="top" size="0.5" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="17">
+    <Name value="CreditText03"/>
+    <CurrentData>
+        <Size width="142" height="29"/>
+        <Position x="169" y="146"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="UI Design" horizontalAlignment="centre" verticalAlignment="top" size="0.5" r="233" g="218" b="39" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="18">
+    <Name value="CreditText04"/>
+    <CurrentData>
+        <Size width="190" height="29"/>
+        <Position x="145" y="114"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="Kelvin Young" horizontalAlignment="centre" verticalAlignment="top" size="0.5" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="19">
+    <Name value="CreditText05"/>
+    <CurrentData>
+        <Size width="324" height="30"/>
+        <Position x="78" y="233"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="Music" horizontalAlignment="centre" verticalAlignment="top" size="0.5" r="233" g="218" b="39" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<GuiStatic id="20">
+    <Name value="CreditText07"/>
+    <CurrentData>
+        <Size width="402" height="145"/>
+        <Position x="45" y="83"/>
+        <Alpha value="0"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="Kevin MacLeod (incompetech.com)
+
+Bright Wish, Circus WaltzFX,
+Friendly Day, Gold Rush,
+Hammock Fight,Merry Go,
+Olde Timey, Plucky Daisy,
+Wallpaper" horizontalAlignment="centre" verticalAlignment="top" size="0.4" r="255" g="255" b="255" a="255"/>
+    <UV x="0" y="0" width="100" height="100"/>
+    <Texture name=""/>
+    <Color r="255" g="255" b="255" a="0"/>
+</GuiStatic>
+
+<?xml version="1.0" encoding="UTF-8"?>

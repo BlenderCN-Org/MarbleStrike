@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<SamplerState>
+  <Name value="linear" />
+  <MinFilter value="Filter_Linear" />
+  <MagFilter value="Filter_Linear" />
+  <MipFilter value="Filter_None" />
+  <AddressU value="TextureAddressMode_Clamp" />
+  <AddressV value="TextureAddressMode_Clamp" />
+  <AddressW value="TextureAddressMode_Clamp" />
+  <BorderColor r="0" g="0" b="0" a="0" />
+  <MipLODBias value="0" />
+  <MaxAnisotropy value="1" />
+</SamplerState>

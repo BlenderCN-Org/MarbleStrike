@@ -1,0 +1,38 @@
+#ifndef COMMAND_MOVE_HPP
+#define COMMAND_MOVE_HPP
+
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#include "command.hpp"
+#include "common/engine/math/vector2.hpp"
+#include <string>
+
+//////////////////////////////////////////////////////
+// FORWARD DECLARATIONS
+//////////////////////////////////////////////////////
+
+class GuiEditorApp;
+
+//////////////////////////////////////////////////////
+// CLASSES
+//////////////////////////////////////////////////////
+
+class CommandMove : public Command
+{
+public:
+
+	CommandMove( GuiEditorApp* guiEditorApp );
+	~CommandMove();
+
+	void Execute();
+	void Undo();
+
+	int mID;
+	int mFrame;
+	Math::Vector2Base<int> mOldPosition;
+	Math::Vector2Base<int> mNewPosition;
+};
+
+#endif

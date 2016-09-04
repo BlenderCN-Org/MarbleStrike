@@ -1,0 +1,57 @@
+#ifndef EFFECT_TECHNIQUE_HPP
+#define EFFECT_TECHNIQUE_HPP
+
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#include "common/engine/system/fixedarray.hpp"
+#include "common/engine/system/assert.hpp"
+
+//////////////////////////////////////////////////////
+// FORWARD DECLARATIONS
+//////////////////////////////////////////////////////
+
+class EffectPass;
+
+///////////////////////////////////////////////////////
+// STRUCTURES
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// CLASSES
+//////////////////////////////////////////////////////
+
+class EffectTechnique
+{
+public:
+
+	EffectTechnique();
+	~EffectTechnique();	
+
+	EffectPass* CreatePass();
+	void Clear();
+
+	int GetNumPasses()
+	{
+		return mPasses.GetSize();
+	}
+
+	EffectPass* GetPass( int index );
+	EffectPass* GetPass( const char* name );
+
+	const char* GetName()
+	{
+		return mName;
+	}
+
+	void SetName( const char* name );
+	
+private:
+
+	char mName[32];
+	FixedArray<EffectPass*> mPasses;
+	
+};
+
+#endif

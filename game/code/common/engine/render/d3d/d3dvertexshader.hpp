@@ -1,0 +1,51 @@
+#if defined( RENDER_PLAT_D3D9 )
+
+#ifndef D3D_VERTEX_SHADER_HPP
+#define D3D_VERTEX_SHADER_HPP
+
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#include "common/engine/render/vertexshader.hpp"
+#include <d3d9.h>
+#include <d3dx9.h>
+
+//////////////////////////////////////////////////////
+// FORWARD DECLARATIONS
+//////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////
+// STRUCTURES
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// CLASSES
+//////////////////////////////////////////////////////
+
+class D3DVertexShader : public VertexShader
+{
+public:
+
+	D3DVertexShader();
+	~D3DVertexShader();
+
+	void Load( const char* path, const char* name );
+	void Reload();
+	void Dispatch();
+
+	LPD3DXCONSTANTTABLE GetConstantTable()
+	{
+		return mVertexConstantTable;
+	}
+		
+private:
+
+	LPDIRECT3DVERTEXSHADER9 mVertexShader;
+	LPD3DXCONSTANTTABLE mVertexConstantTable;
+
+};
+
+#endif
+
+#endif

@@ -1,0 +1,66 @@
+//--------------------------------------------------------------------------------------
+// INCLUDES
+//--------------------------------------------------------------------------------------
+#include "shadow.h"
+
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+uniform float4 gDiffuseColor;
+uniform float4 gLightColor;
+uniform float4 gLightDirection;
+
+
+Texture2D gShadowTexture;
+SamplerState gShadowTextureState;
+Texture2D gColorTexture;
+SamplerState gColorTextureState;
+Texture2D gToonTexture;
+SamplerState gToonTextureState;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float3 Normal : TEXCOORD0;		
+	float4 VColor : TEXCOORD1;
+	float2 TexCoord : TEXCOORD2;
+	float4 PosLight : TEXCOORD3;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+
+	half shadow = Shadow( gShadowTexture, gShadowTextureState, IN.PosLight );
+	shadow = shadow * 0.25 + 0.75;
+    
+	//float3 n = normalize( IN.Normal );
+		
+	half3 lightDirection = ( -gLightDirection.xyz );
+	half diffuse = ( max( dot( IN.Normal, lightDirection ), 0.0 ) );
+		
+	//half4 texColor = gColorTexture.Sample( gColorTextureState, IN.TexCoord );
+	//half3 diffuseColor = gLightColor.rgb * gDiffuseColor.rgb;	
+
+	half4 toonDiffuse = gToonTexture.Sample( gToonTextureState, float2( diffuse, 0 ) );
+	half3 finalDiffuse = gDiffuseColor.rgb * toonDiffuse.rgb;
+
+	half3 finalColor = finalDiffuse;
+	//float alpha = texColor.a * gDiffuseColor.a;
+	finalColor.rgb *= shadow;
+    
+	output.Color = float4( finalColor, 1.0 );
+
+	return output;
+}

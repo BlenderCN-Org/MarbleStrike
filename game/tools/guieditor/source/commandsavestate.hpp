@@ -1,0 +1,43 @@
+#ifndef COMMAND_SAVE_STATE_HPP
+#define COMMAND_SAVE_STATE_HPP
+
+//////////////////////////////////////////////////////
+// INCLUDES
+//////////////////////////////////////////////////////
+
+#include "command.hpp"
+#include <string>
+
+//////////////////////////////////////////////////////
+// FORWARD DECLARATIONS
+//////////////////////////////////////////////////////
+
+class GuiEditorApp;
+class GuiControl;
+
+//////////////////////////////////////////////////////
+// CLASSES
+//////////////////////////////////////////////////////
+
+class CommandSaveState : public Command
+{
+public:
+
+	CommandSaveState( GuiEditorApp* guiEditorApp );
+	~CommandSaveState();
+
+	void Execute();
+	void Undo();
+
+	void SaveState( GuiControl* control );
+
+	GuiControl* GetControl()
+	{
+		return mControl;
+	}
+
+private:	
+	GuiControl* mControl;
+};
+
+#endif

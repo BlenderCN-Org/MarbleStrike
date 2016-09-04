@@ -1,0 +1,42 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+float4 gDownSampleOffsets[16];
+Texture2D gTexture0;
+SamplerState gTextureState;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PS_INPUT
+{
+    float4 Position : SV_POSITION;
+    float2 TexCoord : TEXCOORD0;
+};
+
+struct PS_OUTPUT
+{
+    float4 RGBColor : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+PS_OUTPUT PSMain( PS_INPUT In )
+{ 
+    PS_OUTPUT output;
+    
+	float4 average = { 0.0f, 0.0f, 0.0f, 0.0f };
+
+    for( int i = 0; i < 16; i++ )
+    {
+        average += gTexture0.Sample( gTextureState, In.TexCoord + gDownSampleOffsets[i].xy );
+    }
+        
+    average *= ( 1.0f / 16.0f );
+
+    output.RGBColor = average;   
+        
+    return output;  
+}

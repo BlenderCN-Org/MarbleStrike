@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<effect>
+  <usage>
+    <stream num="0" datatype="POSITION0" shaderinput="POSITION0" format="float3"/>
+  </usage>
+
+  <technique name="noise">
+    <pass name="P0">
+      <depthstencil name="zlessequal"/>
+      <blend name="noblend"/>
+      <rasterizer name="nocull"/>
+      <sampler name="gTexture0" state="noise"/>
+      <sampler name="gTexture1" state="noise"/>
+      <vertexshader name="noise" profile="vs_3_0" />
+      <pixelshader name="noise" profile="ps_3_0"/>
+    </pass>
+  </technique>
+</effect>

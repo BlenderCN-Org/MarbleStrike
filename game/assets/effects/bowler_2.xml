@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<effect>
+  <usage>
+    <stream num="0" datatype="POSITION0" shaderinput="POSITION0" format="float3"/>
+    <stream num="0" datatype="TEXCOORD0" shaderinput="TEXCOORD0" format="float2"/>
+    <stream num="0" datatype="NORMAL0" shaderinput="NORMAL0" format="float3"/>
+  </usage>
+
+  <technique name="bowler_2">
+    <pass name="P0">
+      <depthstencil name="zlessequalwritestencil"/>
+      <blend name="noblend"/>
+      <rasterizer name="backcull"/>
+      <sampler name="gColorTexture" state="default"/>
+      <sampler name="gToonTexture" state="default"/>
+      <sampler name="gShadowTexture" state="shadow"/>
+      <vertexshader name="bowler_2" profile="vs_3_0" />
+      <pixelshader name="bowler_2" profile="ps_3_0"/>
+    </pass>
+  </technique>
+
+	<technique name="bowler_2_hidden">
+		<pass name="P0">
+			<depthstencil name="zlessequalteststencil"/>
+			<blend name="noblend"/>
+			<rasterizer name="backcull"/>
+			<vertexshader name="bowler_2_hidden" profile="vs_3_0" />
+			<pixelshader name="bowler_2_hidden" profile="ps_3_0"/>
+		</pass>
+	</technique>
+
+</effect>

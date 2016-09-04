@@ -1,0 +1,92 @@
+<ScreenProperties width="960" height="640" r="0" g="0" b="0"/>
+
+<GuiStatic id="1">
+    <Name value="Background"/>
+    <CurrentData>
+        <Size width="960" height="640"/>
+        <Position x="0" y="0"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="0" y="343" width="100" height="640"/>
+    <Texture name="game\bowler\gui\textures\start_layout_960x640"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="2">
+    <Name value="Cloud0"/>
+    <CurrentData>
+        <Size width="629" height="422"/>
+        <Position x="414" y="172"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="
+" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="377" y="228" width="629" height="422"/>
+    <Texture name="game\bowler\gui\textures\start_layout_960x640"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="3">
+    <Name value="Cloud1"/>
+    <CurrentData>
+        <Size width="404" height="268"/>
+        <Position x="17" y="40"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="kgthelasttime"/>
+    <Text value="
+" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="15" y="8" width="404" height="268"/>
+    <Texture name="game\bowler\gui\textures\start_layout_960x640"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="4">
+    <Name value="Title"/>
+    <CurrentData>
+        <Size width="734" height="355"/>
+        <Position x="113" y="204"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="114" y="651" width="734" height="355"/>
+    <Texture name="game\bowler\gui\textures\start_layout_960x640"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="5">
+    <Name value="TapToStart"/>
+    <CurrentData>
+        <Size width="437" height="91"/>
+        <Position x="262" y="16"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Animation fps="24" Name="fade-in-out">
+        <KeyFrame frame="0">
+            <Size width="437" height="91"/>
+            <Position x="262" y="16"/>
+            <Alpha value="1"/>
+        </KeyFrame>
+        <KeyFrame frame="20">
+            <Size width="437" height="91"/>
+            <Position x="262" y="16"/>
+            <Alpha value="0.219608"/>
+        </KeyFrame>
+        <KeyFrame frame="40">
+            <Size width="437" height="91"/>
+            <Position x="262" y="16"/>
+            <Alpha value="1"/>
+        </KeyFrame>
+    </Animation>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="500" y="37" width="437" height="91"/>
+    <Texture name="game\bowler\gui\textures\start_layout_960x640"/>
+    <Color r="255" g="255" b="255" a="56"/>
+</GuiStatic>
+
+<?xml version="1.0" encoding="UTF-8"?>

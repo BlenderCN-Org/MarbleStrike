@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<effect>
+  <usage>
+    <stream num="0" datatype="POSITION0" shaderinput="POSITION0" format="float3"/>
+  </usage>
+
+  <technique name="shadow">
+    <pass name="P0">
+      <depthstencil name="zlessequal"/>
+      <blend name="noblend"/>
+      <rasterizer name="frontcull"/>
+      <vertexshader name="shadowdepth" profile="vs_3_0" />
+      <pixelshader name="shadowdepth" profile="ps_3_0"/>
+    </pass>
+  </technique>
+  
+  <technique name="shadowcolor">
+    <pass name="P0">
+      <depthstencil name="zlessequal"/>
+      <blend name="noblend"/>
+      <rasterizer name="frontcull"/>
+      <vertexshader name="shadowdepthcolor" profile="vs_3_0" />
+      <pixelshader name="shadowdepthcolor" profile="ps_3_0"/>
+    </pass>
+  </technique>
+  
+  <technique name="depth">
+    <pass name="P0">
+      <depthstencil name="zlessequal"/>
+      <blend name="noblend"/>
+      <rasterizer name="nocull"/>
+      <vertexshader name="shadowdepthcolor" profile="vs_3_0" />
+      <pixelshader name="shadowdepthcolor" profile="ps_3_0"/>
+    </pass>
+  </technique>
+  
+</effect>

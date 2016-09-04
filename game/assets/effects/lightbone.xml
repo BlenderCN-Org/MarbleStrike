@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<effect>
+  <usage>
+    <stream num="0" datatype="POSITION0" shaderinput="POSITION0" format="float4"/>
+    <stream num="0" datatype="NORMAL0" shaderinput="NORMAL0" format="float3"/>
+    <stream num="0" datatype="TEXCOORD0" shaderinput="TEXCOORD0" format="float2"/>
+    <stream num="0" datatype="BLENDINDICES0" shaderinput="TEXCOORD1" format="float4"/>
+    <stream num="0" datatype="BLENDWEIGHT0" shaderinput="TEXCOORD2" format="float4"/>
+  </usage>
+
+  <technique name="lightbone">
+    <pass name="P0">
+      <depthstencil name="zlessequal"/>
+      <blend name="noblend"/>
+      <rasterizer name="nocull"/>
+      <sampler name="gTexture" state="default"/>
+      <sampler name="gShadowDepthTexture" state="default"/>
+      <vertexshader name="lightbone" profile="vs_3_0" />
+      <pixelshader name="lightbone" profile="ps_3_0"/>
+    </pass>
+  </technique>
+</effect>

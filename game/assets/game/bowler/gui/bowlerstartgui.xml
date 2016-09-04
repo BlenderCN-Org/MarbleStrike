@@ -1,0 +1,48 @@
+<ScreenProperties width="480" height="320" r="0" g="0" b="0"/>
+
+<GuiStatic id="30">
+    <Name value="Title"/>
+    <CurrentData>
+        <Size width="480" height="320"/>
+        <Position x="0" y="0"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="0" y="192" width="480" height="320"/>
+    <Texture name="game\bowler\gui\textures\title"/>
+    <Color r="255" g="255" b="255" a="255"/>
+</GuiStatic>
+
+<GuiStatic id="31">
+    <Name value="TapToStart"/>
+    <CurrentData>
+        <Size width="286" height="58"/>
+        <Position x="97" y="16"/>
+        <Alpha value="1"/>
+    </CurrentData>
+    <Animation fps="24" Name="fade-in-out">
+        <KeyFrame frame="0">
+            <Size width="286" height="58"/>
+            <Position x="97" y="16"/>
+            <Alpha value="1"/>
+        </KeyFrame>
+        <KeyFrame frame="20">
+            <Size width="286" height="58"/>
+            <Position x="97" y="16"/>
+            <Alpha value="0.219608"/>
+        </KeyFrame>
+        <KeyFrame frame="40">
+            <Size width="286" height="58"/>
+            <Position x="97" y="16"/>
+            <Alpha value="1"/>
+        </KeyFrame>
+    </Animation>
+    <Font name="borisblackbloxx"/>
+    <Text value="" horizontalAlignment="left" verticalAlignment="top" size="1" r="0" g="0" b="0" a="255"/>
+    <UV x="98" y="130" width="286" height="58"/>
+    <Texture name="game\bowler\gui\textures\title"/>
+    <Color r="255" g="255" b="255" a="56"/>
+</GuiStatic>
+
+<?xml version="1.0" encoding="UTF-8"?>

@@ -1,0 +1,34 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+
+static const float gFarClip = 100.0f;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+	float4 Position : SV_POSITION;
+    float4 DepthViewSpace : TEXCOORD0;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+    
+    float normalizedViewDepth = -IN.DepthViewSpace.z/gFarClip;
+    
+    output.Color = float4( normalizedViewDepth, normalizedViewDepth, normalizedViewDepth, 1.0 );
+        
+    return output;  
+}

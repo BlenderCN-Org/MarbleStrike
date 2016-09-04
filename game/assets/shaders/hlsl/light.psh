@@ -1,0 +1,104 @@
+//--------------------------------------------------------------------------------------
+// GLOBAL VARIABLES
+//--------------------------------------------------------------------------------------
+float4 gDiffuseColor;
+float4 gEnableTexture;
+float4 gEnableShadow;
+float4 gLightDiffuseColor;
+float4 gDofParams;
+Texture2D gTexture;
+SamplerState gTextureState;
+Texture2D gShadowDepthTexture;
+SamplerState gShadowDepthTextureState;
+
+//--------------------------------------------------------------------------------------
+// STRUCTURES
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float3 Normal : TEXCOORD0;
+	float3 LightDirection : TEXCOORD1;
+	float2 TexCoord : TEXCOORD2;
+	float2 Depth : TEXCOORD3;
+	float4 ShadowTexCoord : TEXCOORD4;
+	float CameraDepth : TEXCOORD5;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;    
+};
+
+//--------------------------------------------------------------------------------------
+// FUNCTIONS
+//--------------------------------------------------------------------------------------
+float ComputeDepthBlur( float depth )
+{
+	float f;	
+	
+	if ( depth < gDofParams.y )
+	{
+		f = ( depth - gDofParams.y ) / ( gDofParams.y - gDofParams.x );
+	}
+	else
+	{
+		f = ( depth - gDofParams.y ) / ( gDofParams.z - gDofParams.y );
+		f = clamp( f, 0.0, gDofParams.w );
+	}
+	
+	return f * 0.5f + 0.5f;
+}
+
+//--------------------------------------------------------------------------------------
+// PIXEL SHADER
+//--------------------------------------------------------------------------------------
+PixelOutput PSMain( const PixelInput IN )
+{   
+    float3 n = normalize( IN.Normal );
+		
+	float NdotL = max( dot( n, normalize( IN.LightDirection.xyz ) ), 0.0 );
+	float4 lightColor = gLightDiffuseColor * saturate( NdotL );	
+	
+	//float2 shadowTexCoord = IN.ShadowTexCoord.xy / IN.ShadowTexCoord.w;
+    //shadowTexCoord.y = 1.0f - shadowTexCoord.y;    
+	//float4 shadowDepth = float4( 0, 0, 0, 0 );	
+	//if ( gEnableShadow.x )
+	//{
+	//	shadowDepth = gShadowDepthTexture.Sample( gShadowDepthTextureState, shadowTexCoord );	
+	//}
+	
+	//float finalDepth = IN.Depth.x / IN.Depth.y;
+	//float shadowValue = 1.0f;	
+	//if ( shadowDepth.x > finalDepth - 0.005 )		
+	//{	
+	//	shadowValue = 1.0f;		
+	//}
+	//else
+	//{
+	//	shadowValue = 0.5f;
+	//}	
+    
+	float4 finalColor = lightColor;
+    
+    if ( gEnableTexture.x )
+    {
+		finalColor *= gTexture.Sample( gTextureState, IN.TexCoord );	
+    }
+    else
+    {
+		finalColor *= gDiffuseColor;
+    }
+        
+    //if ( gEnableShadow.x )
+	//{
+	//	finalColor.xyz *= shadowValue;
+	//}    
+	
+	finalColor.a = ComputeDepthBlur( IN.CameraDepth );
+
+	PixelOutput output;	
+	output.Color = finalColor;
+
+	return output;
+}

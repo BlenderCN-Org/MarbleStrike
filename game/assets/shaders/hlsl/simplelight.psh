@@ -1,0 +1,48 @@
+//--------------------------------------------------------------------------------------
+// Global variables
+//--------------------------------------------------------------------------------------
+float4 gDiffuseColor;
+float4 gLightColor;
+float4 gLightAmbientColor;
+Texture2D gTexture;
+SamplerState gTextureState;
+
+//--------------------------------------------------------------------------------------
+// Output structure
+//--------------------------------------------------------------------------------------
+struct PixelInput
+{
+    float4 Position : SV_POSITION;
+    float4 Color : COLOR;
+    float3 Normal : TEXCOORD0;
+    float2 TexCoord : TEXCOORD1;
+    float3 LightDirection : TEXCOORD2;
+};
+
+struct PixelOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//--------------------------------------------------------------------------------------
+// Pixel shader
+//--------------------------------------------------------------------------------------
+
+PixelOutput PSMain( PixelInput IN )
+{ 
+    PixelOutput output;
+     
+	float4 materialColor = IN.Color;
+	materialColor *= gDiffuseColor;
+	float4 texColor = gTexture.Sample( gTextureState, IN.TexCoord );
+	materialColor *= texColor;
+	
+	float3 normal = normalize( IN.Normal );
+	float NdotL = max( dot( normal, normalize( IN.LightDirection.xyz ) ), 0.0 );	
+	float3 finalLight = gLightAmbientColor.rgb + gLightColor.rgb * NdotL;
+	
+	float4 finalColor = float4( finalLight, 1.0 ) * materialColor;		
+	output.Color = finalColor;
+    
+    return output;  
+}
